@@ -13,11 +13,11 @@ const MemoryGame: React.FC<MemoryGamePropsType> = () => {
 
   const showCount = emojis.filter((emoji) => emoji.show).length;
   // use this to figure out if first click or second click ->
-  // if first clik then update show else update shpw for 2 seconds then undo it too
+  //if first clik then update show else update shpw for 2 seconds then undo it too
 
   return (
     <div>
-      <div className="grid grid-cols-4 w-full">
+      <div className="grid grid-cols-4 w-fit">
         {emojis.map((emoji, index) => (
           <button
             key={`${emoji.label}-${index}`}
