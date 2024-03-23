@@ -1,73 +1,108 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { EMOJIS_LIST } from "./helper";
 
-type MemoryGamePropsType = {};
+type Emoji = {
+  label: string;
+  show: boolean;
+};
 
-const MemoryGame: React.FC<MemoryGamePropsType> = () => {
-  const emojisObj = EMOJIS_LIST.map((emoji) => ({ label: emoji, show: false }));
+const MemoryGame: React.FC = () => {
+  const [emojis, setEmojis] = useState<Emoji[]>(
+    EMOJIS_LIST.map((emoji) => ({ label: emoji, show: false }))
+  );
+  const [firstEmojiIndex, setFirstEmojiIndex] = useState<number | null>(null);
+  const [tries, setTries] = useState<number>(0);
+  const [disableBoard, setDisbaleBoard] = useState<boolean>(false);
 
-  const [emojis, setEmojis] = useState(emojisObj);
+  const isWinningTry = useMemo(
+    () => emojis.every((emoji) => emoji.show),
+    [emojis]
+  );
 
-  useEffect(() => {}, [emojis]);
+  const handleCardClick = useCallback(
+    (index: number) => {
+      const updatedTriesCount = tries + 1;
+      setTries(updatedTriesCount);
 
-  const showCount = emojis.filter((emoji) => emoji.show).length;
-  // use this to figure out if first click or second click ->
-  //if first clik then update show else update shpw for 2 seconds then undo it too
+      // if first click
+      if (updatedTriesCount % 2 === 1) {
+        setFirstEmojiIndex(index);
+        const updatedEmojis = emojis.map((emoji, index2) =>
+          index === index2 ? { ...emoji, show: true } : emoji
+        );
+        setEmojis(updatedEmojis);
+      }
+      //is second click
+      else {
+        const updatedEmojis = emojis.map((emoji, index2) =>
+          index === index2 ? { ...emoji, show: true } : emoji
+        );
+        setEmojis(updatedEmojis);
+
+        let correspondingEmojiIndex = -1;
+        for (let i = 0; i < emojis.length; i++) {
+          if (i !== index && emojis[index].label === emojis[i].label) {
+            correspondingEmojiIndex = i;
+            break;
+          }
+        }
+
+        const hasSelectedCorrespondingEmoji =
+          emojis[correspondingEmojiIndex].show;
+
+        if (hasSelectedCorrespondingEmoji) {
+          const updatedEmojis = emojis.map((emoji, index2) =>
+            index === index2 ? { ...emoji, show: true } : emoji
+          );
+          setEmojis(updatedEmojis);
+        } else {
+          setDisbaleBoard(true);
+          setTimeout(() => {
+            setDisbaleBoard(false);
+            const updatedEmojisNew = emojis.map((emoji, index2) =>
+              index === index2 || index2 === firstEmojiIndex
+                ? { ...emoji, show: false }
+                : emoji
+            );
+            setEmojis(updatedEmojisNew);
+
+            setFirstEmojiIndex(null);
+          }, 5 * 100);
+        }
+      }
+    },
+    [emojis, tries, firstEmojiIndex]
+  );
+
+  const hasGameStarted = tries > 0;
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen justify-center items-center gap-y-10">
       <div className="grid grid-cols-4 w-fit">
         {emojis.map((emoji, index) => (
           <button
             key={`${emoji.label}-${index}`}
-            className="border w-20 h-20 m-2 text-3xl"
+            className={`w-20 h-20 m-2 text-3xl disabled:cursor-not-allowed ${
+              emoji.show ? "" : "border rounded-md"
+            } `}
             onClick={() => {
-              console.log({ index });
-              const updatedEmojis = emojis.map((emoji, index2) =>
-                index === index2 ? { ...emoji, show: !emoji.show } : emoji
-              );
-              setEmojis(updatedEmojis);
+              handleCardClick(index);
             }}
+            disabled={emoji.show || disableBoard}
           >
             {emoji.show ? emoji.label : ""}
           </button>
         ))}
       </div>
-      {showCount}
+      <div>
+        {!hasGameStarted && "All the best. LFG🚀"}
+        {hasGameStarted &&
+          (isWinningTry ? `Woohoo, you comleted the game in ` : `You've made `)}
+        {tries} tries
+      </div>
     </div>
   );
 };
 
 export default MemoryGame;
-
-/**
- * R -
- *  1. emojis list
- *  2. a 4x4 grid - using a 16 length array and display using grid
- *  3. an emoji to show at each position - constants
- *  4. on click an emoji - keep showing it until the next emoji is clicked
- *      1. if emoji match - keep showing
- *      2. else - make both false
- *
- * A -
- *  1. local state - emojis array of object which has a visited/show field and label
- *  2. on click on emoji make its show  = true
- *  3. on click on next position
- *     1. make it visible
- *     2. check if both emojis match
- *         1. if match - keep showing them
- *         2. else - make both of them ka show = false
- *  4. a check which is called whenever a cell is clicked to see if all are visible
- *      1. if yes - show a success message
- *
- * D -
- *
- *
- *
- * I -
- *
- *
- *
- * O -
- */
