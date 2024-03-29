@@ -2,16 +2,31 @@
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { IMAGES } from "./constants";
+import { SLIDESHOW_GITHUB_URL, IMAGES } from "./constants";
+import { Button } from "@/components/ui/button";
 
 const Slideshow = () => {
+  const handleClick = () => {};
   return (
-    <div className="flex flex-wrap justify-center gap-10 h-full p-4">
-      {Array(4)
-        .fill("")
-        .map((_, index) => (
-          <SlideshowCards key={index} />
-        ))}
+    <div className="flex flex-col justify-center items-center gap-10 h-full p-4">
+      <div className="italic text-center">
+        A minimal react component which makes use of{" "}
+        <p className="font-medium underline inline">setInterval()</p> and{" "}
+        <p className="font-medium underline inline">mouse-events</p> to create a
+        slideshow when you hover over the individual cards.
+      </div>
+      <div className="flex flex-wrap gap-10 justify-center">
+        {Array(4)
+          .fill("")
+          .map((_, index) => (
+            <SlideshowCards key={index} />
+          ))}
+      </div>
+      <Button variant="outline">
+        <a href={SLIDESHOW_GITHUB_URL} target="_blank">
+          CODE
+        </a>
+      </Button>
     </div>
   );
 };
