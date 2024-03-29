@@ -14,6 +14,7 @@ import {
 import { easeOut, motion } from "framer-motion";
 import { Input } from "../components/Input";
 import { ConfettiAnimation } from "../components/Confetti";
+import { Button } from "@/components/ui/button";
 
 const WORD_OF_THE_DAY = getWordOfTheDay();
 
@@ -131,25 +132,26 @@ const Wordle: React.FC = () => {
         })}
       </div>
       <div className="flex flex-col gap-4 mx-2 text-sm items-center">
-        <div>
+        <div className="flex w-full max-w-sm items-center space-x-2">
           <Input
             inputRef={inputRef}
             guess={currentGuess}
-            onChange={(e) =>
+            onChange={(e: { target: { value: string } }) =>
               setCurrentGuess(e.target.value.toLocaleUpperCase())
             }
-            disabled={isWinningGuess}
+            disabled={isWinningGuess || guessedWords.length === 6}
           />
-
-          <button
-            className="text-white border border-gray-300 px-2 py-0.5 rounded cursor-pointer disabled:cursor-not-allowed"
+          <Button
+            variant="outline"
+            size="xs"
             disabled={
               currentGuess.length !== WORD_LENGTH || Boolean(feedbackMessage)
             }
             onClick={handleGuessSubmit}
+            aria-disabled={true}
           >
             Submit
-          </button>
+          </Button>
         </div>
 
         {feedbackMessage && (

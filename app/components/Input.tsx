@@ -1,5 +1,6 @@
 import React from "react";
 import { ALPHABET_REGEX, WORD_LENGTH } from "../wordle/helper";
+import { Input as InputElement } from "@/components/ui/input";
 
 type InputPropsType = {
   inputRef: React.RefObject<HTMLInputElement>;
@@ -23,16 +24,16 @@ export const Input: React.FC<InputPropsType> = ({
   }
 
   return (
-    <input
+    <InputElement
       autoFocus
       ref={inputRef}
       type="text"
       minLength={WORD_LENGTH}
       maxLength={WORD_LENGTH}
       value={guess}
-      className="border border-gray-300 w-40 text-sm px-2 rounded mx-4 disabled:cursor-not-allowed text-black"
       disabled={disabled}
       onInput={handleInputChange}
+      className="h-8"
     />
   );
 };
