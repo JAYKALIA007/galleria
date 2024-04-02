@@ -1,6 +1,6 @@
 import React from "react";
 import { ButtonVariantType, ButtonComponent } from "./ButtonComponent";
-import { PlayIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
+import { PlayIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { BUTTON_COMPONENT_GITHUB_URL } from "./constants";
 
