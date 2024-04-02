@@ -37,20 +37,3 @@ export const ButtonComponent: React.FC<ButtonComponentPropsType> = ({
     </div>
   );
 };
-
-/**
-
-    1. Requirements
-        - a basic button which has 
-        - some text
-        - padding
-        - margin 
-        - border radius
-        - variants of small, medium, large based on which you decide the width of the button
-        - border color
-        - background color
-
-        - add dark mode and light mode to buttons
-        - add hover state to buttons - bg color
-        - add all button events type
- */
