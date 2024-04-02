@@ -21,6 +21,9 @@ export default function Home() {
         <Link href="/react-snippets" className="hover:underline">
           React Snippets
         </Link>
+        <Link href="/design-system" className="hover:underline">
+          Design System
+        </Link>
       </div>
     </div>
   );
