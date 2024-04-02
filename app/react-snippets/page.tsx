@@ -1,9 +1,20 @@
 import Link from "next/link";
 import React from "react";
 
-type ReactSnippetsPropsType = {};
+export const metadata = {
+  title: "Galleria | React Snippets",
+  description:
+    "A collection of react implementations for small code snippets which can be used in your personal projects",
+  keywords: [
+    "react-snippets",
+    "web development",
+    "frontend",
+    "snippets",
+    "react.js",
+  ],
+};
 
-const ReactSnippets: React.FC<ReactSnippetsPropsType> = () => {
+const ReactSnippets: React.FC = () => {
   return (
     <div className="italic underline flex flex-col justify-start m-10 gap-20 w-fit p-4">
       <Link href={"/react-snippets/slideshow"}>Slide show on hover</Link>
