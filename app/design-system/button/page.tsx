@@ -1,38 +1,38 @@
 import React from "react";
-import { ButtonComponent } from "./ButtonComponent";
-import { PlayIcon } from "@radix-ui/react-icons";
+import { ButtonVariantType, ButtonComponent } from "./ButtonComponent";
+import { PlayIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
+import { BUTTON_COMPONENT_GITHUB_URL } from "./constants";
+
 const Button: React.FC = () => {
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-12 mb-10">
       <div className="my-5 text-base">
-        Displays a button or a component that looks like a button.
+        Display a button using one of the button variants.
       </div>
-      <ButtonCard>
-        <ButtonComponent />
-      </ButtonCard>
+      <ButtonComponent />
 
-      <hr className="border border-opacity-20 border-gray-300" />
+      <hr className="border border-opacity-30 border-gray-300 dark:border-gray-800 dark:border-opacity-50" />
 
       <div className="flex flex-col gap-6">
         <div className="text-lg">Examples</div>
 
         {/* primary */}
-        <ButtonCard>
-          <div className="text-xs absolute top-4 left-4">Primary</div>
-          <ButtonComponent>Primary</ButtonComponent>
+        <ButtonCard title="Primary">
+          <ButtonComponent />
         </ButtonCard>
 
         {/* secondary */}
         <ButtonCard title="Secondary">
-          <ButtonComponent className="bg-zinc-900 hover:border-zinc-700 text-white border-none">
+          <ButtonComponent buttonVariant={ButtonVariantType.SECONDARY}>
             Secondary
           </ButtonComponent>
         </ButtonCard>
 
         {/* destructive */}
-        <ButtonCard title="Destructive">
-          <ButtonComponent className="bg-red-900 border-red-900">
-            Button
+        <ButtonCard title="Danger">
+          <ButtonComponent buttonVariant={ButtonVariantType.DANGER}>
+            Danger
           </ButtonComponent>
         </ButtonCard>
 
@@ -44,6 +44,31 @@ const Button: React.FC = () => {
           </ButtonComponent>
         </ButtonCard>
       </div>
+
+      <hr className="border border-opacity-30 border-gray-300 dark:border-gray-800 dark:border-opacity-50" />
+      <div className="">
+        For creating these system design components, I was inspired by{" "}
+        <Link
+          href="https://ui.shadcn.com/"
+          target="_blank"
+          className="text-blue-600"
+        >
+          shadcn/ui
+        </Link>
+        . Please check them out.
+      </div>
+      <div className="text-xs">
+        P.S. - I&apos;m planning on adding documentation and code samples soon.
+        Meanwhile you can see the{" "}
+        <Link
+          href={BUTTON_COMPONENT_GITHUB_URL}
+          target="_blank"
+          className="text-blue-600"
+        >
+          code on github.
+        </Link>
+      </div>
+      <hr className="border border-opacity-30 border-gray-300 dark:border-gray-800 dark:border-opacity-50" />
     </div>
   );
 };
@@ -57,7 +82,7 @@ const ButtonCard = ({
   children: React.ReactNode;
   title?: string;
 }) => (
-  <div className="border border-gray-300 flex flex-col gap-4 p-4 rounded-md h-60 justify-center items-center relative">
+  <div className="border border-gray-300 dark:border-gray-800 flex flex-col gap-4 p-4 rounded-md h-60 justify-center items-center relative">
     <div className="text-xs absolute top-4 left-4">{title}</div>
     {children}
   </div>
