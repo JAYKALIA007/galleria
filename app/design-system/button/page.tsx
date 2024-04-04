@@ -49,6 +49,15 @@ const Button: React.FC = () => {
             <span>Play</span>
           </ButtonComponent>
         </ButtonCard>
+
+        {/* button with a loading state */}
+        <ButtonCard title="Button with a loading state">
+          <ButtonComponent
+            isLoading
+            disabled
+            loadingStateMessage="Please wait"
+          />
+        </ButtonCard>
       </div>
 
       <hr className="border border-opacity-30 border-gray-300 dark:border-gray-800 dark:border-opacity-50" />
