@@ -1,7 +1,7 @@
 "use client";
 import React, { useMemo, useState } from "react";
 import { DEFAULT_BOARD, WINNING_COMBINATIONS } from "./helper";
-import { ConfettiAnimation } from "../components/Confetti";
+import { ConfettiAnimation } from "../../components/Confetti";
 
 const TicTacToe: React.FC = () => {
   const [board, setBoard] = useState<Array<string | null>>(DEFAULT_BOARD);

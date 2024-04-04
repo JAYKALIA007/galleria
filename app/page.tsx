@@ -9,14 +9,8 @@ export default function Home() {
         <link rel="icon" href="app/favicon.ico" />
       </Head>
       <div className="italic flex flex-col gap-2">
-        <Link href="/wordle" className="hover:underline">
-          Wordle
-        </Link>
-        <Link href="/tic-tac-toe" className="hover:underline">
-          Tic Tac Toe
-        </Link>
-        <Link href="/memory-game" className="hover:underline">
-          Memory Game
+        <Link href="/games" className="hover:underline">
+          Games
         </Link>
         <Link href="/react-snippets" className="hover:underline">
           React Snippets
