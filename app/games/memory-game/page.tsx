@@ -1,7 +1,7 @@
 import { MemoryGame } from "./MemoryGame";
 
 export const metadata = {
-  title: "Galleria | Memory Game",
+  title: "Galleria | Games | Memory Game",
   description:
     "Level up your memory for free with this online memory card game. Flip the cards and match the tiles together in pairs.",
   keywords: ["memory-game", "games"],

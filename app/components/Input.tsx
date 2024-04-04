@@ -1,5 +1,5 @@
 import React from "react";
-import { ALPHABET_REGEX, WORD_LENGTH } from "../wordle/helper";
+import { ALPHABET_REGEX, WORD_LENGTH } from "../games/wordle/helper";
 import { Input as InputElement } from "@/components/ui/input";
 
 type InputPropsType = {

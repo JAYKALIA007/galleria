@@ -12,8 +12,8 @@ import {
   initializeMap,
 } from "./helper";
 import { easeOut, motion } from "framer-motion";
-import { Input } from "../components/Input";
-import { ConfettiAnimation } from "../components/Confetti";
+import { Input } from "../../components/Input";
+import { ConfettiAnimation } from "../../components/Confetti";
 import { Button } from "@/components/ui/button";
 
 const WORD_OF_THE_DAY = getWordOfTheDay();
