@@ -4,6 +4,12 @@ import { PlayIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { BUTTON_COMPONENT_GITHUB_URL } from "./constants";
 
+export const metadata = {
+  title: "Galleria | Design | Button",
+  description: "A reusable button component with multiple variants.",
+  keywords: ["frontend", "components", "design-system", "button"],
+};
+
 const Button: React.FC = () => {
   return (
     <div className="flex flex-col gap-12 mb-10">
