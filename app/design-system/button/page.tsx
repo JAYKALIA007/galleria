@@ -13,7 +13,7 @@ export const metadata = {
 const Button: React.FC = () => {
   return (
     <div className="flex flex-col gap-12 mb-10">
-      <div className="my-5 text-base">
+      <div className="my-5 md:text-base">
         Display a button using one of the button variants.
       </div>
       <ButtonComponent />
