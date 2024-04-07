@@ -31,14 +31,28 @@ const Button: React.FC = () => {
         {/* secondary */}
         <ButtonCard title="Secondary">
           <ButtonComponent buttonVariant={ButtonVariantType.SECONDARY}>
-            Secondary
+            {ButtonVariantType.SECONDARY}
           </ButtonComponent>
         </ButtonCard>
 
         {/* destructive */}
         <ButtonCard title="Danger">
           <ButtonComponent buttonVariant={ButtonVariantType.DANGER}>
-            Danger
+            {ButtonVariantType.DANGER}
+          </ButtonComponent>
+        </ButtonCard>
+
+        {/* outline */}
+        <ButtonCard title="Outline">
+          <ButtonComponent buttonVariant={ButtonVariantType.OUTLINE}>
+            {ButtonVariantType.OUTLINE}
+          </ButtonComponent>
+        </ButtonCard>
+
+        {/* ghost */}
+        <ButtonCard title="Ghost">
+          <ButtonComponent buttonVariant={ButtonVariantType.GHOST}>
+            {ButtonVariantType.GHOST}
           </ButtonComponent>
         </ButtonCard>
 
