@@ -9,8 +9,10 @@ export const metadata = {
 };
 
 const DesignSystem: React.FC = () => (
-  <div className="italic flex flex-col justify-start m-10 gap-2 w-fit p-4">
-    <Link href={"/design-system/button"}>Button component</Link>
+  <div className="flex flex-col">
+    <Link href={"/design-system/button"} className="hover:underline">
+      Button component
+    </Link>
   </div>
 );
 

@@ -40,7 +40,7 @@ const TicTacToe: React.FC = () => {
   const isGameDraw = Boolean(!board.includes(null));
 
   return (
-    <div className="flex flex-col gap-10 justify-center items-center min-h-screen">
+    <div className="flex flex-col gap-10 mt-32 lg:mt-40 items-center">
       <div className="grid grid-cols-3">
         {board.map((cell, index) => (
           <button

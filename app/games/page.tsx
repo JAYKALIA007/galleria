@@ -10,7 +10,7 @@ export const metadata = {
 
 const Games: React.FC = () => {
   return (
-    <div className="italic flex flex-col justify-start m-10 gap-2 w-fit p-4">
+    <div className="flex flex-col gap-2">
       <Link href="/games/wordle" className="hover:underline">
         Wordle
       </Link>

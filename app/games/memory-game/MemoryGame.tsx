@@ -1,6 +1,7 @@
 "use client";
 import React, { useCallback, useMemo, useState } from "react";
 import { EMOJIS_LIST } from "./helper";
+import { ConfettiAnimation } from "@/app/components/Confetti";
 
 type Emoji = {
   label: string;
@@ -78,12 +79,12 @@ export const MemoryGame: React.FC = () => {
   const hasGameStarted = tries > 0;
 
   return (
-    <div className="flex flex-col min-h-screen justify-center items-center gap-y-10">
+    <div className="flex flex-col items-center mt-32 lg:mt-40 gap-y-10">
       <div className="grid grid-cols-4 w-fit">
         {emojis.map((emoji, index) => (
           <button
             key={`${emoji.label}-${index}`}
-            className={`w-20 h-20 m-2 text-3xl disabled:cursor-not-allowed ${
+            className={`w-12 h-12 sm:w-16 sm:h-16 m-2 text-3xl disabled:cursor-not-allowed ${
               emoji.show ? "" : "border rounded-md"
             } `}
             onClick={() => {
@@ -101,6 +102,7 @@ export const MemoryGame: React.FC = () => {
           (isWinningTry ? `Woohoo, you comleted the game in ` : `You've made `)}
         {tries} tries
       </div>
+      {hasGameStarted && isWinningTry && <ConfettiAnimation />}
     </div>
   );
 };

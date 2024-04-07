@@ -16,8 +16,10 @@ export const metadata = {
 
 const ReactSnippets: React.FC = () => {
   return (
-    <div className="italic flex flex-col justify-start m-10 gap-2 w-fit p-4">
-      <Link href={"/react-snippets/slideshow"}>Slide show on hover</Link>
+    <div className="flex flex-col gap-2">
+      <Link href={"/react-snippets/slideshow"} className="hover:underline">
+        Slide show on hover
+      </Link>
     </div>
   );
 };

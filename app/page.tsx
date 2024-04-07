@@ -2,13 +2,13 @@ import Head from "next/head";
 import Link from "next/link";
 export default function Home() {
   return (
-    <div className="m-10 flex gap-20 justify-start w-fit p-4">
+    <>
       <Head>
         <title>Next.js App</title>
         <meta name="description" content="Your description here" />
         <link rel="icon" href="app/favicon.ico" />
       </Head>
-      <div className="italic flex flex-col gap-2">
+      <div className="flex flex-col gap-2">
         <Link href="/games" className="hover:underline">
           Games
         </Link>
@@ -19,6 +19,6 @@ export default function Home() {
           Design System
         </Link>
       </div>
-    </div>
+    </>
   );
 }
