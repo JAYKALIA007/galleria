@@ -1,8 +1,22 @@
 import React from "react";
 import { ButtonVariantType, ButtonComponent } from "./ButtonComponent";
-import { PlayIcon } from "@radix-ui/react-icons";
+import {
+  PlayIcon,
+  ExternalLinkIcon,
+  GitHubLogoIcon,
+} from "@radix-ui/react-icons";
 import Link from "next/link";
-import { BUTTON_COMPONENT_GITHUB_URL } from "./constants";
+import {
+  BUTTON_COMPONENT_GITHUB_URL,
+  DANGER_BUTTON_CODE_LINES,
+  GHOST_BUTTON_CODE_LINES,
+  ICON_IN_BUTTON_CODE_LINES,
+  LOADING_BUTTON_CODE_LINES,
+  OUTLINE_BUTTON_CODE_LINES,
+  PRIMARY_BUTTON_CODE_LINES,
+  SECONDARY_BUTTON_CODE_LINES,
+} from "./constants";
+import { ButtonCard } from "@/app/components/ButtonCard";
 
 export const metadata = {
   title: "Galleria | Design | Button",
@@ -13,10 +27,28 @@ export const metadata = {
 const Button: React.FC = () => {
   return (
     <div className="flex flex-col gap-12 mb-10 w-2/3 lg:w-full mx-auto">
-      <div className="my-5 md:text-base">
+      <div className="my-5">
         Display a button using one of the button variants.
       </div>
-      <ButtonComponent />
+
+      <div className="flex justify-between items-center">
+        <ButtonComponent />
+        <Link href={BUTTON_COMPONENT_GITHUB_URL} target="_blank">
+          <ButtonComponent
+            buttonVariant={ButtonVariantType.SECONDARY}
+            className="gap-2 text-xs px-2"
+          >
+            <GitHubLogoIcon />
+            <span>
+              Code{" "}
+              <span className="hidden md:inline-block">
+                of the Button Component
+              </span>
+            </span>
+            <ExternalLinkIcon />
+          </ButtonComponent>
+        </Link>
+      </div>
 
       <hr className="border border-opacity-30 border-gray-300 dark:border-gray-800 dark:border-opacity-50" />
 
@@ -24,40 +56,49 @@ const Button: React.FC = () => {
         <div className="text-lg">Examples</div>
 
         {/* primary */}
-        <ButtonCard title="Primary">
+        <div className="text-base">Primary</div>
+        <ButtonCard key="Primary" codeLines={PRIMARY_BUTTON_CODE_LINES}>
           <ButtonComponent />
         </ButtonCard>
 
         {/* secondary */}
-        <ButtonCard title="Secondary">
+        <div className="text-base">Secondary</div>
+        <ButtonCard key="Secondary" codeLines={SECONDARY_BUTTON_CODE_LINES}>
           <ButtonComponent buttonVariant={ButtonVariantType.SECONDARY}>
             {ButtonVariantType.SECONDARY}
           </ButtonComponent>
         </ButtonCard>
 
         {/* destructive */}
-        <ButtonCard title="Danger">
+        <div className="text-base">Danger</div>
+        <ButtonCard key="Danger" codeLines={DANGER_BUTTON_CODE_LINES}>
           <ButtonComponent buttonVariant={ButtonVariantType.DANGER}>
             {ButtonVariantType.DANGER}
           </ButtonComponent>
         </ButtonCard>
 
         {/* outline */}
-        <ButtonCard title="Outline">
+        <div className="text-base">Outline</div>
+        <ButtonCard key="Outline" codeLines={OUTLINE_BUTTON_CODE_LINES}>
           <ButtonComponent buttonVariant={ButtonVariantType.OUTLINE}>
             {ButtonVariantType.OUTLINE}
           </ButtonComponent>
         </ButtonCard>
 
         {/* ghost */}
-        <ButtonCard title="Ghost">
+        <div className="text-base">Ghost</div>
+        <ButtonCard key="Ghost" codeLines={GHOST_BUTTON_CODE_LINES}>
           <ButtonComponent buttonVariant={ButtonVariantType.GHOST}>
             {ButtonVariantType.GHOST}
           </ButtonComponent>
         </ButtonCard>
 
-        {/* button with icons */}
-        <ButtonCard title="Button with icon">
+        {/* button with icon */}
+        <div className="text-base">Button with icon</div>
+        <ButtonCard
+          key="Button with icon"
+          codeLines={ICON_IN_BUTTON_CODE_LINES}
+        >
           <ButtonComponent>
             <PlayIcon />
             <span>Play</span>
@@ -65,7 +106,11 @@ const Button: React.FC = () => {
         </ButtonCard>
 
         {/* button with a loading state */}
-        <ButtonCard title="Button with a loading state">
+        <div className="text-base">Button with a loading state</div>
+        <ButtonCard
+          key="Button with a loading state"
+          codeLines={LOADING_BUTTON_CODE_LINES}
+        >
           <ButtonComponent
             isLoading
             disabled
@@ -103,16 +148,3 @@ const Button: React.FC = () => {
 };
 
 export default Button;
-
-const ButtonCard = ({
-  children,
-  title,
-}: {
-  children: React.ReactNode;
-  title?: string;
-}) => (
-  <div className="border border-gray-300 dark:border-gray-800 flex flex-col gap-4 p-4 rounded-md h-60 justify-center items-center relative">
-    <div className="text-xs absolute top-4 left-4">{title}</div>
-    {children}
-  </div>
-);
