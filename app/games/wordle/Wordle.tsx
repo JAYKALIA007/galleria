@@ -68,7 +68,7 @@ const Wordle: React.FC = () => {
   const colsArray = Array(NO_OF_COLS).fill("");
 
   return (
-    <div className="min-h-screen overflow-scroll flex flex-col gap-10 justify-center items-center">
+    <div className="pb-10 overflow-scroll flex flex-col gap-10 items-center mt-24 md:mt-20">
       <div>
         {rowsArray.map((_, index1) => {
           const word = guessedWords.length > index1 ? guessedWords[index1] : "";
@@ -119,7 +119,7 @@ const Wordle: React.FC = () => {
                       },
                     }}
                     key={index2}
-                    className={`border w-10 h-10 md:w-20 md:h-20 flex justify-center items-center m-2 text-white text-xl font-semibold ${
+                    className={`border w-10 h-10 md:w-16 md:h-16 flex justify-center items-center m-2 text-white text-xl font-semibold ${
                       character ? bgColor : ""
                     }`}
                   >
@@ -132,33 +132,32 @@ const Wordle: React.FC = () => {
         })}
       </div>
       <div className="flex flex-col gap-4 mx-2 text-sm items-center">
-        <div className="flex w-full max-w-sm items-center space-x-2">
-          <Input
-            inputRef={inputRef}
-            guess={currentGuess}
-            onChange={(e: { target: { value: string } }) =>
-              setCurrentGuess(e.target.value.toLocaleUpperCase())
-            }
-            disabled={isWinningGuess || guessedWords.length === 6}
-          />
-          <Button
-            variant="outline"
-            size="xs"
-            disabled={
-              currentGuess.length !== WORD_LENGTH || Boolean(feedbackMessage)
-            }
-            onClick={handleGuessSubmit}
-            aria-disabled={true}
-          >
-            Submit
-          </Button>
-        </div>
-
+        {!isWinningGuess && (
+          <div className="flex w-full max-w-sm items-center space-x-2">
+            <Input
+              inputRef={inputRef}
+              guess={currentGuess}
+              onChange={(e: { target: { value: string } }) =>
+                setCurrentGuess(e.target.value.toLocaleUpperCase())
+              }
+              disabled={isWinningGuess || guessedWords.length === 6}
+            />
+            <Button
+              variant="outline"
+              size="xs"
+              disabled={
+                currentGuess.length !== WORD_LENGTH || Boolean(feedbackMessage)
+              }
+              onClick={handleGuessSubmit}
+              aria-disabled={true}
+            >
+              Submit
+            </Button>
+          </div>
+        )}
         {feedbackMessage && (
           <div
-            className={`m-2 text-lg md:text-xl ${
-              !isWinningGuess ? "text-red-800" : "text-white"
-            }`}
+            className={`m-2 ${!isWinningGuess ? "text-red-800" : "text-white"}`}
           >
             {feedbackMessage}
           </div>
