@@ -1,10 +1,10 @@
 import React from "react";
 
-type PropsType = {
+type CodeSamplePropsType = {
   codeLines: string[];
 };
 
-export const CodeSample: React.FC<PropsType> = ({ codeLines }) => {
+export const CodeSample: React.FC<CodeSamplePropsType> = ({ codeLines }) => {
   return (
     <div className="w-full max-h-60 overflow-scroll">
       <pre

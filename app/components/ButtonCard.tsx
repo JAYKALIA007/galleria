@@ -16,19 +16,15 @@ export const ButtonCard: React.FC<ButtonCardPropsType> = ({
   return (
     <div className="border border-gray-300 dark:border-gray-800 flex flex-col gap-4 p-4 rounded-md h-60 justify-center items-center relative text-xs">
       <div className="absolute top-4 bg-white dark:bg-gray-950 w-full pb-2">
-        <div className="mx-4 flex gap-2">
+        <div className="mx-4 flex gap-2 underline-offset-4">
           <button
-            className={`hover:underline underline-offset-4 ${
-              !showCode && "underline"
-            } `}
+            className={`hover:underline ${!showCode && "underline"} `}
             onClick={() => setShowCode(false)}
           >
             Preview
           </button>
           <button
-            className={`hover:underline underline-offset-4 ${
-              showCode && "underline"
-            } `}
+            className={`hover:underline ${showCode && "underline"} `}
             onClick={() => setShowCode(true)}
           >
             Code
