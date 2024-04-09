@@ -9,10 +9,10 @@ export const PRIMARY_BUTTON_CODE_LINES = [
 ];
 
 export const SECONDARY_BUTTON_CODE_LINES = [
-  `import { ButtonVariantType, ButtonComponent } from "./ButtonComponent";`,
+  `import { ButtonComponent } from "./ButtonComponent";`,
   `export const Button = () => {`,
   ` return(`,
-  `     <ButtonComponent buttonVariant='secondary'>`,
+  `     <ButtonComponent theme='secondary'>`,
   `        secondary`,
   `     </ButtonComponent>`,
   `)}`,
@@ -22,7 +22,7 @@ export const DANGER_BUTTON_CODE_LINES = [
   `import { ButtonComponent } from "./ButtonComponent";`,
   `export const Button = () => {`,
   ` return(`,
-  `     <ButtonComponent buttonVariant='danger'>`,
+  `     <ButtonComponent theme='danger'>`,
   `        danger`,
   `     </ButtonComponent>`,
   `)}`,
@@ -32,7 +32,7 @@ export const OUTLINE_BUTTON_CODE_LINES = [
   `import { ButtonComponent } from "./ButtonComponent";`,
   `export const Button = () => {`,
   ` return(`,
-  `     <ButtonComponent buttonVariant='outline'>`,
+  `     <ButtonComponent theme='outline'>`,
   `        outline`,
   `     </ButtonComponent>`,
   `)}`,
@@ -69,5 +69,37 @@ export const LOADING_BUTTON_CODE_LINES = [
   `         disabled`,
   `         loadingStateMessage="Please wait"`,
   `     />`,
+  `)}`,
+];
+
+export const DEFAULT_SIZE_CODE_LINES = [
+  `import { ButtonComponent } from "./ButtonComponent";`,
+  `export const Button = () => {`,
+  ` return(`,
+  `     <ButtonComponent />`,
+  `)}`,
+];
+
+export const XS_SIZE_CODE_LINES = [
+  `import { ButtonComponent } from "./ButtonComponent";`,
+  `export const Button = () => {`,
+  ` return(`,
+  `     <ButtonComponent size='xs'/>`,
+  `)}`,
+];
+
+export const SM_SIZE_CODE_LINES = [
+  `import { ButtonComponent } from "./ButtonComponent";`,
+  `export const Button = () => {`,
+  ` return(`,
+  `     <ButtonComponent size='sm'/>`,
+  `)}`,
+];
+
+export const LG_SIZE_CODE_LINES = [
+  `import { ButtonComponent } from "./ButtonComponent";`,
+  `export const Button = () => {`,
+  ` return(`,
+  `     <ButtonComponent size='lg'/>`,
   `)}`,
 ];
