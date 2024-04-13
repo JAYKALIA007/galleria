@@ -157,7 +157,7 @@ const Button: React.FC = () => {
 
       <Divider />
 
-      <>
+      <div>
         For creating these system design components, I was inspired by{" "}
         <Link
           href="https://ui.shadcn.com/"
@@ -167,7 +167,7 @@ const Button: React.FC = () => {
           shadcn/ui
         </Link>
         . Please check them out.
-      </>
+      </div>
 
       <div className="text-xs">
         P.S. - I&apos;m planning on adding documentation and code samples soon.
