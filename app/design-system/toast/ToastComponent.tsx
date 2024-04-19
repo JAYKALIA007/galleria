@@ -72,7 +72,7 @@ export const ToastComponent: React.FC<ToastPropsType> = ({
     showToast &&
     createPortal(
       <motion.div
-        className={`p-4 border rounded-lg w-96 fixed right-10 shadow-md 4 ${themeVariantClasses} ${placementClasses} ${className}`}
+        className={`p-4 border rounded-lg w-96 fixed right-5 md:right-10 shadow-md ${themeVariantClasses} ${placementClasses} ${className}`}
         initial={{ y: "30%", x: "0%" }}
         animate={{ y: "0%", x: removeToast ? "100%" : "0%" }}
         transition={{ duration: removeToast ? 0.1 : 0.2 }}

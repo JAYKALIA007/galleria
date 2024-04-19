@@ -11,6 +11,7 @@ import { Divider } from "@/app/components/Divider";
 import Link from "next/link";
 import { ToastCard } from "@/app/components/ToastCard";
 import { TOAST_COMPONENT_GITHUB_URL } from "./constants";
+import { ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 
 const ToastPage = () => {
   const [showDefaultToast, setShowDefaultToast] = useState(false);
@@ -28,23 +29,41 @@ const ToastPage = () => {
 
       {/* default state */}
 
-      <ButtonComponent
-        theme={ButtonThemeVariantType.OUTLINE}
-        size={ButtonSizeVariantType.SM}
-        onClick={() => {
-          setShowDestructiveToast(false);
-          setShowToastWithHeading(false);
-          setShowToastWithCTA(false);
-          setShowToastAtTop(false);
-          setShowDefaultToast(true);
-        }}
-      >
-        Show Toast
-      </ButtonComponent>
+      <div className="flex justify-between items-center">
+        <ButtonComponent
+          theme={ButtonThemeVariantType.OUTLINE}
+          size={ButtonSizeVariantType.SM}
+          onClick={() => {
+            setShowDestructiveToast(false);
+            setShowToastWithHeading(false);
+            setShowToastWithCTA(false);
+            setShowToastAtTop(false);
+            setShowDefaultToast(true);
+          }}
+        >
+          Show Toast
+        </ButtonComponent>
 
-      {showDefaultToast && (
-        <ToastComponent onClose={() => setShowDefaultToast(false)} />
-      )}
+        {showDefaultToast && (
+          <ToastComponent onClose={() => setShowDefaultToast(false)} />
+        )}
+
+        <Link href={TOAST_COMPONENT_GITHUB_URL} target="_blank">
+          <ButtonComponent
+            theme={ButtonThemeVariantType.SECONDARY}
+            size={ButtonSizeVariantType.SM}
+          >
+            <GitHubLogoIcon />
+            <span>
+              Code{" "}
+              <span className="hidden md:inline-block">
+                of the Toast Component
+              </span>
+            </span>
+            <ExternalLinkIcon />
+          </ButtonComponent>
+        </Link>
+      </div>
 
       <Divider />
 
