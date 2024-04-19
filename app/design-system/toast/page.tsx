@@ -4,8 +4,9 @@ import { ButtonComponent } from "../button/ButtonComponent";
 import { ButtonSizeVariantType, ButtonThemeVariantType } from "../button/types";
 import { ToastComponent, ToastVariantThemeType } from "./ToastComponent";
 import { Divider } from "@/app/components/Divider";
-import { BUTTON_COMPONENT_GITHUB_URL } from "../button/constants";
 import Link from "next/link";
+import { ToastCard } from "@/app/components/ToastCard";
+import { TOAST_COMPONENT_GITHUB_URL } from "./constants";
 
 const ToastPage = () => {
   const [showDefaultToast, setShowDefaultToast] = useState(false);
@@ -169,7 +170,7 @@ const ToastPage = () => {
         P.S. - I&apos;m planning on adding documentation and code samples soon.
         Meanwhile you can see the{" "}
         <Link
-          href={BUTTON_COMPONENT_GITHUB_URL}
+          href={TOAST_COMPONENT_GITHUB_URL}
           target="_blank"
           className="text-blue-600"
         >
@@ -182,35 +183,3 @@ const ToastPage = () => {
 };
 
 export default ToastPage;
-
-type ToastCardPropsType = {
-  children: React.ReactNode;
-};
-
-export const ToastCard: React.FC<ToastCardPropsType> = ({ children }) => {
-  const [showCode, setShowCode] = useState(false);
-
-  return (
-    <div className="border border-gray-300 dark:border-gray-800 flex flex-col gap-4 p-4 rounded-md h-60 justify-center items-center relative text-xs">
-      <div className="absolute top-4 bg-white dark:bg-gray-950 w-full pb-2">
-        <div className="mx-4 flex gap-2 underline-offset-4">
-          <button
-            className={`hover:underline ${!showCode && "underline"} `}
-            onClick={() => setShowCode(false)}
-          >
-            Preview
-          </button>
-          <button
-            className={`hover:underline ${
-              showCode && "underline"
-            } disabled:cursor-not-allowed disabled:no-underline`}
-            disabled
-          >
-            Code
-          </button>
-        </div>
-      </div>
-      {children}
-    </div>
-  );
-};
