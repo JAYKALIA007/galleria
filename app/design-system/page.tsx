@@ -8,10 +8,14 @@ export const metadata = {
   keywords: ["frontend", "components", "design-system", "button"],
 };
 
+//TODO: Create a common Link component that has the following classnames
 const DesignSystem: React.FC = () => (
-  <div className="flex flex-col">
+  <div className="flex flex-col gap-2">
     <Link href={"/design-system/button"} className="hover:underline">
-      Button component
+      Button
+    </Link>
+    <Link href={"/design-system/toast"} className="hover:underline">
+      Toast
     </Link>
   </div>
 );
