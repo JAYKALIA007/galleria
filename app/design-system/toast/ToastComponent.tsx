@@ -10,6 +10,11 @@ export enum ToastVariantThemeType {
   DANGER = "danger",
 }
 
+export enum ToastPostionType {
+  TOP_RIGHT = "top-right",
+  BOTTOM_RIGHT = "bottom-right",
+}
+
 const toastVariants = {
   variant: {
     default: "border-gray-200 bg-white dark:bg-gray-950 dark:border-gray-800",
@@ -19,7 +24,7 @@ const toastVariants = {
 };
 
 type ToastPropsType = {
-  placement?: "top-right" | "bottom-right";
+  placement?: ToastPostionType;
   heading?: string;
   message?: string;
   duration?: number;
@@ -30,14 +35,14 @@ type ToastPropsType = {
 };
 
 export const ToastComponent: React.FC<ToastPropsType> = ({
-  placement = "bottom-right",
   heading = "",
   message = "Your message has been sent",
   duration = 3 * 1000,
   onClose,
-  className = "",
+  placement = ToastPostionType.BOTTOM_RIGHT,
   theme = ToastVariantThemeType.DEFAULT,
   actionMessage = "",
+  className = "",
 }) => {
   const [showToast, setShowToast] = useState(true);
   const [showCloseToastButton, setShowCloseToastButton] = useState(false);

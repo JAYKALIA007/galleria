@@ -2,7 +2,11 @@
 import React, { useState } from "react";
 import { ButtonComponent } from "../button/ButtonComponent";
 import { ButtonSizeVariantType, ButtonThemeVariantType } from "../button/types";
-import { ToastComponent, ToastVariantThemeType } from "./ToastComponent";
+import {
+  ToastComponent,
+  ToastPostionType,
+  ToastVariantThemeType,
+} from "./ToastComponent";
 import { Divider } from "@/app/components/Divider";
 import Link from "next/link";
 import { ToastCard } from "@/app/components/ToastCard";
@@ -146,7 +150,7 @@ const ToastPage = () => {
             <ToastComponent
               heading="Uh oh! Something went wrong"
               onClose={() => setShowToastAtTop(false)}
-              placement="top-right"
+              placement={ToastPostionType.TOP_RIGHT}
             />
           )}
         </ToastCard>

@@ -4,6 +4,7 @@ type ToastCardPropsType = {
   children: React.ReactNode;
 };
 
+// TODO: Create a common card component
 export const ToastCard: React.FC<ToastCardPropsType> = ({ children }) => {
   const [showCode, setShowCode] = useState(false);
 
