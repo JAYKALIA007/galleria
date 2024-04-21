@@ -68,7 +68,7 @@ const ToastPage = () => {
       <Divider />
 
       <div className="flex flex-col gap-6">
-        <div className="text-lg">Examples of Theme variants</div>
+        <div className="text-lg">Examples of Toast variants</div>
 
         {/*  toast with heading */}
         <div className="text-base">Toast With Heading</div>
