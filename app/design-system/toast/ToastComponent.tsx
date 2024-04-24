@@ -58,7 +58,12 @@ export const ToastComponent: React.FC<ToastPropsType> = ({
     return () => clearTimeout(timeout);
   }, [duration, onClose]);
 
-  const placementClasses = placement === "top-right" ? "top-16 " : "bottom-5";
+  const placementClasses =
+    placement === ToastPostionType.TOP_RIGHT ? "top-16 " : "bottom-5";
+  const INITIAL_Y_AXIS_POSITION =
+    placement === ToastPostionType.TOP_RIGHT ? "0%" : "30%";
+  const FINAL_Y_AXIS_POSITION =
+    placement === ToastPostionType.TOP_RIGHT ? "10%" : "0%";
 
   const handleRemoveToast = () => {
     setRemoveToast(true);
@@ -73,8 +78,8 @@ export const ToastComponent: React.FC<ToastPropsType> = ({
     createPortal(
       <motion.div
         className={`p-4 border rounded-lg w-96 fixed right-5 md:right-10 shadow-md ${themeVariantClasses} ${placementClasses} ${className}`}
-        initial={{ y: "30%", x: "0%" }}
-        animate={{ y: "0%", x: removeToast ? "100%" : "0%" }}
+        initial={{ y: INITIAL_Y_AXIS_POSITION, x: "0%" }}
+        animate={{ y: FINAL_Y_AXIS_POSITION, x: removeToast ? "100%" : "0%" }}
         transition={{ duration: removeToast ? 0.1 : 0.2 }}
         onMouseEnter={() => setShowCloseToastButton(true)}
         onMouseLeave={() => setShowCloseToastButton(false)}
