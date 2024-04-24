@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { SlideshowCards } from "./SlideshowCards";
 
 export const metadata = {
-  title: "Galleria | Snippets | Slideshow",
+  title: "Slideshow | React Snippets",
   description:
     "An implementation of a card which creates a slideshow when you hover on the card.",
   keywords: [

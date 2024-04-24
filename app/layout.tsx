@@ -6,9 +6,16 @@ import { ThemeProvider } from "./components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Games Galleria | Home",
-  description: "Welcome to the Games Galleria by Jay",
-  keywords: ["games", "wordle", "tic-tac-toe", "blog", "side-project"],
+  title: "Galleria | Home",
+  description: "Welcome to the Galleria by Jay",
+  keywords: [
+    "design system",
+    "react-snippets",
+    "games",
+    "tic-tac-toe",
+    "blog",
+    "side-project",
+  ],
 };
 
 export default function RootLayout({

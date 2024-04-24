@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 
 export const metadata = {
-  title: "Galleria | Games",
+  title: "Games | Galleria",
   description:
     "A collection of games which built using react, next and typescript.",
   keywords: ["games", "wordle", "tic-tac-toe", "memory game"],

@@ -2,10 +2,10 @@ import Link from "next/link";
 import React from "react";
 
 export const metadata = {
-  title: "Galleria | Design System",
+  title: "Design System | Galleria",
   description:
-    "A collection of reusable coded components, which can be used in your projects.",
-  keywords: ["frontend", "components", "design-system", "button"],
+    "A collection of boilerplate code for most commonly used frontend components, along with examples.",
+  keywords: ["frontend", "components", "design-system", "button", "toast"],
 };
 
 //TODO: Create a common Link component that has the following classnames

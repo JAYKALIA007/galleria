@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 
 export const metadata = {
-  title: "Galleria | React Snippets",
+  title: "React Snippets | Galleria",
   description:
     "A collection of react implementations for small code snippets which can be used in your personal projects",
   keywords: [
