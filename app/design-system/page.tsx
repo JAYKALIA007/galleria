@@ -11,11 +11,14 @@ export const metadata = {
 //TODO: Create a common Link component that has the following classnames
 const DesignSystem: React.FC = () => (
   <div className="flex flex-col gap-2">
-    <Link href={"/design-system/button"} className="hover:underline">
-      Button
+    <Link href={"/design-system/accordion"} className="hover:underline">
+      Accordion
     </Link>
     <Link href={"/design-system/toast"} className="hover:underline">
       Toast
+    </Link>
+    <Link href={"/design-system/button"} className="hover:underline">
+      Button
     </Link>
   </div>
 );
