@@ -96,7 +96,6 @@ export const ToastPageWrapper = () => {
         </ToastCard>
 
         {/* destructive toast*/}
-
         <div className="text-base">Destructive Toast</div>
         <ToastCard>
           <ButtonComponent
