@@ -10,7 +10,13 @@ import {
 import { Divider } from "@/app/components/Divider";
 import Link from "next/link";
 import { ToastCard } from "@/app/components/ToastCard";
-import { TOAST_COMPONENT_GITHUB_URL } from "./constants";
+import {
+  DESTRUCTIVE_TOAST_CODE_LINES,
+  TOAST_AT_TOP_CODE_LINES,
+  TOAST_COMPONENT_GITHUB_URL,
+  TOAST_WITH_CTA_CODE_LINES,
+  TOAST_WITH_HEADING_CODE_LINES,
+} from "./constants";
 import { ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 import { DesignSystemWrapperPageFooter } from "@/app/components/DesignSystemWrapperPageFooter";
 
@@ -73,7 +79,7 @@ export const ToastPageWrapper = () => {
 
         {/*  toast with heading */}
         <div className="text-base">Toast With Heading</div>
-        <ToastCard>
+        <ToastCard codeLines={TOAST_WITH_HEADING_CODE_LINES}>
           <ButtonComponent
             theme={ButtonThemeVariantType.OUTLINE}
             size={ButtonSizeVariantType.SM}
@@ -98,7 +104,7 @@ export const ToastPageWrapper = () => {
 
         {/* destructive toast*/}
         <div className="text-base">Destructive Toast</div>
-        <ToastCard>
+        <ToastCard codeLines={DESTRUCTIVE_TOAST_CODE_LINES}>
           <ButtonComponent
             theme={ButtonThemeVariantType.OUTLINE}
             size={ButtonSizeVariantType.SM}
@@ -124,7 +130,7 @@ export const ToastPageWrapper = () => {
 
         {/*toast with CTA*/}
         <div className="text-base">Toast with CTA</div>
-        <ToastCard>
+        <ToastCard codeLines={TOAST_WITH_CTA_CODE_LINES}>
           <ButtonComponent
             theme={ButtonThemeVariantType.OUTLINE}
             size={ButtonSizeVariantType.SM}
@@ -150,7 +156,7 @@ export const ToastPageWrapper = () => {
 
         {/*toast at top right*/}
         <div className="text-base">Toast at top right</div>
-        <ToastCard>
+        <ToastCard codeLines={TOAST_AT_TOP_CODE_LINES}>
           <ButtonComponent
             theme={ButtonThemeVariantType.OUTLINE}
             size={ButtonSizeVariantType.SM}

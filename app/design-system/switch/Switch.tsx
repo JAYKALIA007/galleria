@@ -10,6 +10,7 @@ type SwitchPropsType = {
   className?: string;
   label?: string;
   labelPosition?: string;
+  fillColor?: string;
 };
 export const Switch: React.FC<SwitchPropsType> = ({
   className = "",
@@ -17,6 +18,7 @@ export const Switch: React.FC<SwitchPropsType> = ({
   disabled = false,
   isChecked = false,
   labelPosition = "left",
+  fillColor = "bg-blue-500",
 }) => {
   const [isOn, setIsOn] = useState(isChecked);
   let flexDirection;
@@ -42,9 +44,9 @@ export const Switch: React.FC<SwitchPropsType> = ({
     <div className={`flex gap-3 ${flexDirection}`}>
       {label && <div>{label}</div>}
       <button
-        className={`w-12 h-7 p-1.5 flex items-center bg-gray-300 dark:bg-gray-800 cursor-pointer rounded-full disabled:cursor-not-allowed justify-start
-      [&[data-isOn='true']]:bg-blue-500
+        className={`w-12 h-7 p-1.5 flex items-center  cursor-pointer rounded-full disabled:cursor-not-allowed justify-start
       [&[data-isOn='true']]:justify-end
+      ${isOn ? fillColor : "bg-gray-300 dark:bg-gray-800"}
       ${className}
       `}
         onClick={() => setIsOn(!isOn)}
