@@ -50,6 +50,11 @@ export const SwitchPageWrapper = () => {
           <Switch disabled isChecked />
         </SwitchCard>
 
+        <div className="text-base">Switch with a different fill color</div>
+        <SwitchCard>
+          <Switch fillColor="bg-green-600" isChecked />
+        </SwitchCard>
+
         <div className="text-base">Switch with label, default position</div>
         <SwitchCard>
           <Switch label="Airplane mode" />
