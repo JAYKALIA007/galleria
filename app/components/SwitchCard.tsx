@@ -1,12 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { CodeSample } from "./CodeSample";
 
 type SwitchCardPropsType = {
   children: React.ReactNode;
+  codeLines?: string[];
 };
 
-export const SwitchCard: React.FC<SwitchCardPropsType> = ({ children }) => {
+export const SwitchCard: React.FC<SwitchCardPropsType> = ({
+  children,
+  codeLines = [],
+}) => {
   const [showCode, setShowCode] = useState(false);
 
   return (
@@ -20,16 +25,14 @@ export const SwitchCard: React.FC<SwitchCardPropsType> = ({ children }) => {
             Preview
           </button>
           <button
-            className={`hover:underline ${
-              showCode && "underline"
-            } disabled:cursor-not-allowed disabled:no-underline`}
-            disabled
+            className={`hover:underline ${showCode && "underline"}`}
+            onClick={() => setShowCode(true)}
           >
             Code
           </button>
         </div>
       </div>
-      {children}
+      {showCode ? <CodeSample codeLines={codeLines} /> : children}
     </div>
   );
 };
