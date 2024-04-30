@@ -12,6 +12,7 @@ import Link from "next/link";
 import { ToastCard } from "@/app/components/ToastCard";
 import { TOAST_COMPONENT_GITHUB_URL } from "./constants";
 import { ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
+import { DesignSystemWrapperPageFooter } from "@/app/components/DesignSystemWrapperPageFooter";
 
 export const ToastPageWrapper = () => {
   const [showDefaultToast, setShowDefaultToast] = useState(false);
@@ -22,7 +23,7 @@ export const ToastPageWrapper = () => {
 
   return (
     <div className="flex flex-col gap-12 mb-10 p-4 md:w-4/5 lg:w-full mx-auto">
-      <div className="my-5">
+      <div className="my-2 md:leading-6">
         A toast provides simple feedback about an operation in a small popup,
         created using React Portal.
       </div>
@@ -176,29 +177,7 @@ export const ToastPageWrapper = () => {
 
       <Divider />
 
-      <div>
-        For creating these system design components, I was inspired by{" "}
-        <Link
-          href="https://ui.shadcn.com/"
-          target="_blank"
-          className="text-blue-600"
-        >
-          shadcn/ui
-        </Link>
-        . Please check them out.
-      </div>
-
-      <div className="text-xs">
-        P.S. - I&apos;m planning on adding documentation and code samples soon.
-        Meanwhile you can see the{" "}
-        <Link
-          href={TOAST_COMPONENT_GITHUB_URL}
-          target="_blank"
-          className="text-blue-600"
-        >
-          code on github.
-        </Link>
-      </div>
+      <DesignSystemWrapperPageFooter url={TOAST_COMPONENT_GITHUB_URL} />
       <Divider />
     </div>
   );

@@ -23,11 +23,12 @@ import {
 import { ButtonCard } from "@/app/components/ButtonCard";
 import { Divider } from "@/app/components/Divider";
 import { ButtonSizeVariantType, ButtonThemeVariantType } from "./types";
+import { DesignSystemWrapperPageFooter } from "@/app/components/DesignSystemWrapperPageFooter";
 
 export const ButtonPageWrapper: React.FC = () => {
   return (
     <div className="flex flex-col gap-12 mb-10 p-4 md:w-4/5 lg:w-full mx-auto">
-      <div className="my-5">
+      <div className="my-2 md:leading-6">
         Display a button using one of the available theme or size variants.
       </div>
 
@@ -151,29 +152,7 @@ export const ButtonPageWrapper: React.FC = () => {
 
       <Divider />
 
-      <div>
-        For creating these system design components, I was inspired by{" "}
-        <Link
-          href="https://ui.shadcn.com/"
-          target="_blank"
-          className="text-blue-600"
-        >
-          shadcn/ui
-        </Link>
-        . Please check them out.
-      </div>
-
-      <div className="text-xs">
-        P.S. - I&apos;m planning on adding documentation and code samples soon.
-        Meanwhile you can see the{" "}
-        <Link
-          href={BUTTON_COMPONENT_GITHUB_URL}
-          target="_blank"
-          className="text-blue-600"
-        >
-          code on github.
-        </Link>
-      </div>
+      <DesignSystemWrapperPageFooter url={BUTTON_COMPONENT_GITHUB_URL} />
       <Divider />
     </div>
   );
