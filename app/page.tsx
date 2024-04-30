@@ -9,14 +9,14 @@ export default function Home() {
         <link rel="icon" href="app/favicon.ico" />
       </Head>
       <div className="flex flex-col gap-2">
+        <Link href="/design-system" className="hover:underline">
+          Design System
+        </Link>
         <Link href="/games" className="hover:underline">
           Games
         </Link>
         <Link href="/react-snippets" className="hover:underline">
           React Snippets
-        </Link>
-        <Link href="/design-system" className="hover:underline">
-          Design System
         </Link>
       </div>
     </>

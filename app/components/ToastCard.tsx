@@ -1,11 +1,16 @@
 import { useState } from "react";
+import { CodeSample } from "./CodeSample";
 
 type ToastCardPropsType = {
   children: React.ReactNode;
+  codeLines?: string[];
 };
 
 // TODO: Create a common card component
-export const ToastCard: React.FC<ToastCardPropsType> = ({ children }) => {
+export const ToastCard: React.FC<ToastCardPropsType> = ({
+  children,
+  codeLines = [],
+}) => {
   const [showCode, setShowCode] = useState(false);
 
   return (
@@ -19,16 +24,14 @@ export const ToastCard: React.FC<ToastCardPropsType> = ({ children }) => {
             Preview
           </button>
           <button
-            className={`hover:underline ${
-              showCode && "underline"
-            } disabled:cursor-not-allowed disabled:no-underline`}
-            disabled
+            className={`hover:underline ${showCode && "underline"} `}
+            onClick={() => setShowCode(true)}
           >
             Code
           </button>
         </div>
       </div>
-      {children}
+      {showCode ? <CodeSample codeLines={codeLines} /> : children}
     </div>
   );
 };
