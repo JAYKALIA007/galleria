@@ -38,34 +38,34 @@ export const SwitchPageWrapper = () => {
       <Divider />
 
       <div className="flex flex-col gap-6">
-        <div className="text-lg">Examples of Theme variants</div>
+        <div className="text-lg">Examples of Switch variants</div>
 
-        <div className="text-base">Normal</div>
+        <div className="text-base">Default switch</div>
         <SwitchCard>
           <Switch />
         </SwitchCard>
 
-        <div className="text-base">Disabled</div>
+        <div className="text-base">Disabled switch</div>
         <SwitchCard>
-          <Switch disabled />
+          <Switch disabled isChecked />
         </SwitchCard>
 
-        <div className="text-base">With label</div>
+        <div className="text-base">Switch with label, default position</div>
         <SwitchCard>
           <Switch label="Airplane mode" />
         </SwitchCard>
 
-        <div className="text-base">With label right</div>
+        <div className="text-base">Switch with label, positioned right</div>
         <SwitchCard>
           <Switch label="Airplane mode" labelPosition="right" />
         </SwitchCard>
 
-        <div className="text-base">With label top</div>
+        <div className="text-base">Switch with label, positioned top</div>
         <SwitchCard>
           <Switch label="Airplane mode" labelPosition="top" />
         </SwitchCard>
 
-        <div className="text-base">With label bottom</div>
+        <div className="text-base">Switch with label, positioned bottom</div>
         <SwitchCard>
           <Switch label="Airplane mode" labelPosition="bottom" />
         </SwitchCard>

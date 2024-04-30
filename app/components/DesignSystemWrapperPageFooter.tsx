@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { SHADCN_UI_URL } from "../constants";
 
 type DesignSystemWrapperPageFooterPropsType = {
   url: string;
@@ -12,11 +13,7 @@ export const DesignSystemWrapperPageFooter: React.FC<
     <div className="flex flex-col gap-10">
       <div>
         For creating these system design components, I was inspired by{" "}
-        <Link
-          href="https://ui.shadcn.com/"
-          target="_blank"
-          className="text-blue-600"
-        >
+        <Link href={SHADCN_UI_URL} target="_blank" className="text-blue-600">
           shadcn/ui
         </Link>
         . Please check them out.
