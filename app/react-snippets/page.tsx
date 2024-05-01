@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { SlideInAnimationContainer } from "../components/SlideInAnimationContainer";
 
 export const metadata = {
   title: "React Snippets | Galleria",
@@ -16,11 +17,16 @@ export const metadata = {
 
 const ReactSnippets: React.FC = () => {
   return (
-    <div className="flex flex-col gap-2">
-      <Link href={"/react-snippets/slideshow"} className="hover:underline">
-        Slide show on hover
-      </Link>
-    </div>
+    <SlideInAnimationContainer>
+      <div className="flex flex-col gap-2">
+        <Link
+          href={"/react-snippets/slideshow"}
+          className="hover:underline underline-offset-4"
+        >
+          Slide show on hover
+        </Link>
+      </div>
+    </SlideInAnimationContainer>
   );
 };
 
