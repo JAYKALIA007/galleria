@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { SlideInAnimationContainer } from "../components/SlideInAnimationContainer";
 
 export const metadata = {
   title: "Games | Galleria",
@@ -10,17 +11,28 @@ export const metadata = {
 
 const Games: React.FC = () => {
   return (
-    <div className="flex flex-col gap-2">
-      <Link href="/games/wordle" className="hover:underline">
-        Wordle
-      </Link>
-      <Link href="/games/tic-tac-toe" className="hover:underline">
-        Tic Tac Toe
-      </Link>
-      <Link href="/games/memory-game" className="hover:underline">
-        Memory Game
-      </Link>
-    </div>
+    <SlideInAnimationContainer>
+      <div className="flex flex-col gap-2">
+        <Link
+          href="/games/wordle"
+          className="hover:underline underline-offset-4"
+        >
+          Wordle
+        </Link>
+        <Link
+          href="/games/tic-tac-toe"
+          className="hover:underline underline-offset-4"
+        >
+          Tic Tac Toe
+        </Link>
+        <Link
+          href="/games/memory-game"
+          className="hover:underline underline-offset-4"
+        >
+          Memory Game
+        </Link>
+      </div>
+    </SlideInAnimationContainer>
   );
 };
 
