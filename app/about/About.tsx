@@ -20,7 +20,7 @@ import {
 const About: React.FC = () => {
   return (
     <SlideInAnimationContainer>
-      <div className="flex flex-col gap-4 text-xs md:text-sm">
+      <div className="flex flex-col gap-8 text-xs md:text-sm">
         <div className="text-base md:text-lg font-semibold">
           Hey there, I&apos;m Jay - your friendly neighborhood web wizard!
         </div>

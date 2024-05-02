@@ -7,7 +7,7 @@ export const WhyDesignSystem: React.FC = () => {
   const [showSeeMore, setShowSeeMore] = useState(true);
 
   return (
-    <div className="flex flex-col gap-4 box-border text-xs md:text-sm">
+    <div className="flex flex-col gap-8 box-border text-xs md:text-sm">
       <header className="text-base md:text-lg font-semibold">
         The motivation.
       </header>
