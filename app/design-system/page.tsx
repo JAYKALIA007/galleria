@@ -18,7 +18,7 @@ const DesignSystem: React.FC = () => (
       <WhyDesignSystem />
       <div className="flex flex-col gap-2">
         <div className="text-base md:text-lg font-medium">
-          Design System Components
+          {`The Components`}
         </div>
         <Link
           href={"/design-system/switch"}
