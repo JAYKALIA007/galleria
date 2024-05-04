@@ -4,7 +4,6 @@ import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import Link from "next/link";
 import React, { ReactNode } from "react";
 import { motion } from "framer-motion";
-import { ExternalLinkIcon } from "@radix-ui/react-icons";
 
 export const AnimatedIconLink = ({
   url,
@@ -18,15 +17,15 @@ export const AnimatedIconLink = ({
   <TooltipPrimitive.Provider>
     <TooltipPrimitive.Root delayDuration={300}>
       <TooltipPrimitive.Trigger asChild>
-        <Link href={url} target="_blank">
-          <motion.button
-            whileHover={{ scale: 1.3 }}
-            whileTap={{ scale: 0.7 }}
-            aria-label={label}
-          >
+        <motion.button
+          whileHover={{ scale: 1.3 }}
+          whileTap={{ scale: 0.7 }}
+          aria-label={label}
+        >
+          <Link href={url} target="_blank">
             {icon}
-          </motion.button>
-        </Link>
+          </Link>
+        </motion.button>
       </TooltipPrimitive.Trigger>
       <TooltipPrimitive.Portal>
         <TooltipPrimitive.Content
