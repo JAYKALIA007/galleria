@@ -2,8 +2,14 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
-import { RIZZLE_ABOUT, TCS_ABOUT, TOPLYNE_ABOUT } from "./constants";
+import {
+  DRIVE_RESUME_LINK,
+  RIZZLE_ABOUT,
+  TCS_ABOUT,
+  TOPLYNE_ABOUT,
+} from "./constants";
 import Link from "next/link";
+import { ExternalLinkIcon } from "lucide-react";
 
 const SPRING_ANIMATION = { duration: 1, type: "spring" };
 const FINAL_STYLES = { opacity: 1, x: 0 };
@@ -11,6 +17,7 @@ const SEE_MORE_LESS_BUTTON_STYLES =
   "text-xs cursor-pointer hover:underline decoration-blue-500 underline-offset-4 flex justify-start";
 
 export const Experience: React.FC = () => {
+  const [isHover, setIsHover] = useState(false);
   return (
     <div className="flex flex-col gap-10">
       <motion.section
@@ -34,6 +41,22 @@ export const Experience: React.FC = () => {
       >
         <ExperienceCard experience={TCS_ABOUT} />
       </motion.section>
+      <Link
+        href={DRIVE_RESUME_LINK}
+        target="_blank"
+        className="hover:underline decoration-blue-700 dark:decoration-blue-500 underline-offset-4 flex gap-1 items-center hover:text-inherit"
+      >
+        <div
+          className="flex gap-1 items-center"
+          onMouseEnter={() => setIsHover(true)}
+          onMouseLeave={() => setIsHover(false)}
+        >
+          View Full Résumé
+          <motion.button animate={isHover ? { y: -3, x: 3 } : { y: 0, x: 0 }}>
+            <ExternalLinkIcon height={"16px"} width={"16px"} />
+          </motion.button>
+        </div>
+      </Link>
     </div>
   );
 };
@@ -95,6 +118,7 @@ const ExperienceCard: React.FC<ExperienceCardPropsType> = ({ experience }) => {
               exit={{ opacity: 0 }}
               className={SEE_MORE_LESS_BUTTON_STYLES}
               onClick={() => setShowSeeMore(false)}
+              aria-label="See more"
             >
               See more...
             </motion.button>
@@ -122,6 +146,7 @@ const ExperienceCard: React.FC<ExperienceCardPropsType> = ({ experience }) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
+                aria-label="See less"
               >
                 See less...
               </motion.button>
