@@ -2,7 +2,7 @@ import About from "./About";
 
 export const metadata = {
   title: "About | Galleria",
-  description: "About me and my socials.",
+  description: "About me, my work experience and my socials.",
   keywords: ["jay-kalia", "jays-blog", "jay-prakash"],
 };
 
