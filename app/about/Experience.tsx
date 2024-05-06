@@ -46,7 +46,10 @@ export const Experience: React.FC = () => {
         target="_blank"
         className="hover:underline decoration-blue-700 dark:decoration-blue-500 underline-offset-4 flex gap-1 items-center hover:text-inherit"
       >
-        <div
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2.7, duration: 2 }}
           className="flex gap-1 items-center"
           onMouseEnter={() => setIsHover(true)}
           onMouseLeave={() => setIsHover(false)}
@@ -55,7 +58,7 @@ export const Experience: React.FC = () => {
           <motion.button animate={isHover ? { y: -3, x: 3 } : { y: 0, x: 0 }}>
             <ExternalLinkIcon height={"16px"} width={"16px"} />
           </motion.button>
-        </div>
+        </motion.div>
       </Link>
     </div>
   );
