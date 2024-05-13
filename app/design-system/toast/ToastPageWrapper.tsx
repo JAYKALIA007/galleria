@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { ButtonComponent } from "../button/ButtonComponent";
 import { ButtonSizeVariantType, ButtonThemeVariantType } from "../button/types";
 import {
@@ -26,6 +26,24 @@ export const ToastPageWrapper = () => {
   const [showDestructiveToast, setShowDestructiveToast] = useState(false);
   const [showToastWithCTA, setShowToastWithCTA] = useState(false);
   const [showToastAtTop, setShowToastAtTop] = useState(false);
+
+  const resetAll = useCallback(() => {
+    setShowDefaultToast(false);
+    setShowToastWithHeading(false);
+    setShowDestructiveToast(false);
+    setShowToastWithCTA(false);
+    setShowToastAtTop(false);
+  }, []);
+
+  useEffect(() => {
+    const handleEscKeyPress = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        resetAll();
+      }
+    };
+    document.addEventListener("keydown", handleEscKeyPress);
+    return () => document.removeEventListener("keydown", handleEscKeyPress);
+  }, [resetAll]);
 
   return (
     <div className="flex flex-col gap-12 mb-10 p-4 md:w-4/5 lg:w-full mx-auto">
