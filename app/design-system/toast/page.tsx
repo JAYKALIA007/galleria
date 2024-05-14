@@ -7,8 +7,6 @@ export const metadata = {
   keywords: ["frontend", "components", "design-system", "toast"],
 };
 
-const ToastPage = () => {
-  return <ToastPageWrapper />;
-};
+const ToastPage = () => <ToastPageWrapper />;
 
 export default ToastPage;
