@@ -11,8 +11,9 @@ import {
 import Link from "next/link";
 import { ExternalLinkIcon } from "lucide-react";
 
-const SPRING_ANIMATION = { duration: 1, type: "spring" };
-const FINAL_STYLES = { opacity: 1, x: 0 };
+const SPRING_ANIMATION = { duration: 2, type: "spring" };
+const FINAL_STYLES = { opacity: 1, y: 0 };
+const INITIAL_STYLES = { opacity: 0, y: 20 };
 const SEE_MORE_LESS_BUTTON_STYLES =
   "text-xs cursor-pointer hover:underline decoration-blue-500 underline-offset-4 flex justify-start";
 
@@ -21,21 +22,21 @@ export const Experience: React.FC = () => {
   return (
     <div className="flex flex-col gap-10">
       <motion.section
-        initial={{ opacity: 0, x: "40vw" }}
+        initial={INITIAL_STYLES}
         animate={FINAL_STYLES}
         transition={{ ...SPRING_ANIMATION, delay: 1 }}
       >
         <ExperienceCard experience={RIZZLE_ABOUT} />
       </motion.section>
       <motion.section
-        initial={{ opacity: 0, x: "-40vw" }}
+        initial={INITIAL_STYLES}
         animate={FINAL_STYLES}
         transition={{ ...SPRING_ANIMATION, delay: 1.5 }}
       >
         <ExperienceCard experience={TOPLYNE_ABOUT} />
       </motion.section>
       <motion.section
-        initial={{ opacity: 0, x: "40vw" }}
+        initial={INITIAL_STYLES}
         animate={FINAL_STYLES}
         transition={{ ...SPRING_ANIMATION, delay: 2 }}
       >

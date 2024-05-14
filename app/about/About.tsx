@@ -1,4 +1,5 @@
 import { SlideInAnimationContainer } from "../components/SlideInAnimationContainer";
+import { ABOUT_CONTENT } from "../constants";
 import { Experience } from "./Experience";
 
 import { Socials } from "./Socials";
@@ -11,9 +12,9 @@ const About: React.FC = () => {
           Hey there, I&apos;m Jay.
         </div>
         <div className="leading-6">
-          You can find me inspecting elements on random websites, crafting
-          intuitive seamless interfaces, and preaching the good word of design
-          systems. Oh, and you can also track me down on these socials...
+          {ABOUT_CONTENT}
+          <br />
+          Oh, and you can also track me down on these socials...
         </div>
         <Socials />
         <Experience />
