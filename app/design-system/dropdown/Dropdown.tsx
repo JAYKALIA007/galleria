@@ -52,7 +52,7 @@ export const DropdownItem = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof DropdownPrimitive.Item>
 >(({ className, children, ...props }, ref) => {
   const disabledClass = props.disabled
-    ? "cursor-not-allowed hover:bg-white hover:dark:bg-gray-950"
+    ? "hover:cursor-not-allowed hover:bg-white hover:dark:bg-gray-950"
     : "";
   return (
     <DropdownPrimitive.Item
