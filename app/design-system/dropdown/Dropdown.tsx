@@ -56,7 +56,7 @@ export const DropdownItem = React.forwardRef<
     : "";
   return (
     <DropdownPrimitive.Item
-      className={`${styles.dropdownItem} ${disabledClass} ${className}`}
+      className={`${styles.dropdownItem} ${className} ${disabledClass}`}
       disabled={props.disabled}
       {...props}
       ref={ref}
