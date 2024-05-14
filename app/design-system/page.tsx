@@ -2,7 +2,6 @@ import Link from "next/link";
 import React from "react";
 import { WhyDesignSystem } from "../components/WhyDesignSystem";
 import { SlideInAnimationContainer } from "../components/SlideInAnimationContainer";
-import { Divider } from "../components/Divider";
 
 export const metadata = {
   title: "Design System | Galleria",
@@ -16,7 +15,7 @@ const DesignSystem: React.FC = () => (
   <SlideInAnimationContainer>
     <div className="flex flex-col gap-6">
       <WhyDesignSystem />
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 text-xs md:text-sm">
         <div className="text-base md:text-lg font-medium">
           {`The Components`}
         </div>
