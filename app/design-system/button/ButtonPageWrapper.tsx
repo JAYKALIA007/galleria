@@ -20,10 +20,10 @@ import {
   SM_SIZE_CODE_LINES,
   XS_SIZE_CODE_LINES,
 } from "./constants";
-import { ButtonCard } from "@/app/components/ButtonCard";
 import { Divider } from "@/app/components/Divider";
 import { ButtonSizeVariantType, ButtonThemeVariantType } from "./types";
 import { DesignSystemWrapperPageFooter } from "@/app/components/DesignSystemWrapperPageFooter";
+import { Card } from "@/app/components/Card";
 
 export const ButtonPageWrapper: React.FC = () => {
   return (
@@ -58,57 +58,54 @@ export const ButtonPageWrapper: React.FC = () => {
 
         {/* primary */}
         <div className="text-base">Primary</div>
-        <ButtonCard key="Primary" codeLines={PRIMARY_BUTTON_CODE_LINES}>
+        <Card key="Primary" codeLines={PRIMARY_BUTTON_CODE_LINES}>
           <ButtonComponent />
-        </ButtonCard>
+        </Card>
 
         {/* secondary */}
         <div className="text-base">Secondary</div>
-        <ButtonCard key="Secondary" codeLines={SECONDARY_BUTTON_CODE_LINES}>
+        <Card key="Secondary" codeLines={SECONDARY_BUTTON_CODE_LINES}>
           <ButtonComponent theme={ButtonThemeVariantType.SECONDARY}>
             {ButtonThemeVariantType.SECONDARY}
           </ButtonComponent>
-        </ButtonCard>
+        </Card>
 
         {/* destructive */}
         <div className="text-base">Danger</div>
-        <ButtonCard key="Danger" codeLines={DANGER_BUTTON_CODE_LINES}>
+        <Card key="Danger" codeLines={DANGER_BUTTON_CODE_LINES}>
           <ButtonComponent theme={ButtonThemeVariantType.DANGER}>
             {ButtonThemeVariantType.DANGER}
           </ButtonComponent>
-        </ButtonCard>
+        </Card>
 
         {/* outline */}
         <div className="text-base">Outline</div>
-        <ButtonCard key="Outline" codeLines={OUTLINE_BUTTON_CODE_LINES}>
+        <Card key="Outline" codeLines={OUTLINE_BUTTON_CODE_LINES}>
           <ButtonComponent theme={ButtonThemeVariantType.OUTLINE}>
             {ButtonThemeVariantType.OUTLINE}
           </ButtonComponent>
-        </ButtonCard>
+        </Card>
 
         {/* ghost */}
         <div className="text-base">Ghost</div>
-        <ButtonCard key="Ghost" codeLines={GHOST_BUTTON_CODE_LINES}>
+        <Card key="Ghost" codeLines={GHOST_BUTTON_CODE_LINES}>
           <ButtonComponent theme={ButtonThemeVariantType.GHOST}>
             {ButtonThemeVariantType.GHOST}
           </ButtonComponent>
-        </ButtonCard>
+        </Card>
 
         {/* button with icon */}
         <div className="text-base">Button with icon</div>
-        <ButtonCard
-          key="Button with icon"
-          codeLines={ICON_IN_BUTTON_CODE_LINES}
-        >
+        <Card key="Button with icon" codeLines={ICON_IN_BUTTON_CODE_LINES}>
           <ButtonComponent>
             <PlayIcon />
             <span>Play</span>
           </ButtonComponent>
-        </ButtonCard>
+        </Card>
 
         {/* button with a loading state */}
         <div className="text-base">Button with a loading state</div>
-        <ButtonCard
+        <Card
           key="Button with a loading state"
           codeLines={LOADING_BUTTON_CODE_LINES}
         >
@@ -117,7 +114,7 @@ export const ButtonPageWrapper: React.FC = () => {
             disabled
             loadingStateMessage="Please wait"
           />
-        </ButtonCard>
+        </Card>
       </div>
 
       <Divider />
@@ -127,27 +124,27 @@ export const ButtonPageWrapper: React.FC = () => {
 
         {/* primary button of default size */}
         <div className="text-base">Default</div>
-        <ButtonCard key="Primary" codeLines={DEFAULT_SIZE_CODE_LINES}>
+        <Card key="Primary" codeLines={DEFAULT_SIZE_CODE_LINES}>
           <ButtonComponent />
-        </ButtonCard>
+        </Card>
 
         {/* primary button of extra small size */}
         <div className="text-base">Extra Small</div>
-        <ButtonCard key="Primary" codeLines={XS_SIZE_CODE_LINES}>
+        <Card key="Primary" codeLines={XS_SIZE_CODE_LINES}>
           <ButtonComponent size={ButtonSizeVariantType.XS} />
-        </ButtonCard>
+        </Card>
 
         {/* primary button of small size */}
         <div className="text-base">Small</div>
-        <ButtonCard key="Primary" codeLines={SM_SIZE_CODE_LINES}>
+        <Card key="Primary" codeLines={SM_SIZE_CODE_LINES}>
           <ButtonComponent size={ButtonSizeVariantType.SM} />
-        </ButtonCard>
+        </Card>
 
         {/* primary button of large size */}
         <div className="text-base">Large</div>
-        <ButtonCard key="Primary" codeLines={LG_SIZE_CODE_LINES}>
+        <Card key="Primary" codeLines={LG_SIZE_CODE_LINES}>
           <ButtonComponent size={ButtonSizeVariantType.LG} />
-        </ButtonCard>
+        </Card>
       </div>
 
       <Divider />

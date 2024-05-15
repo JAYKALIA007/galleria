@@ -4,7 +4,6 @@ import { ButtonComponent } from "../button/ButtonComponent";
 import { ButtonSizeVariantType, ButtonThemeVariantType } from "../button/types";
 import { ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
-import { SwitchCard } from "@/app/components/SwitchCard";
 import {
   DEFAULT_SWITCH_CODE_LINES,
   DISABLED_SWITCH_CODE_LINES,
@@ -16,6 +15,7 @@ import {
   SWITCH_WITH_FILL_CODE_LINES,
 } from "./constants";
 import { DesignSystemWrapperPageFooter } from "@/app/components/DesignSystemWrapperPageFooter";
+import { Card } from "@/app/components/Card";
 
 export const SwitchPageWrapper = () => {
   return (
@@ -50,39 +50,39 @@ export const SwitchPageWrapper = () => {
         <div className="text-lg">Examples of Switch variants</div>
 
         <div className="text-base">Default switch</div>
-        <SwitchCard codeLines={DEFAULT_SWITCH_CODE_LINES}>
+        <Card codeLines={DEFAULT_SWITCH_CODE_LINES}>
           <Switch />
-        </SwitchCard>
+        </Card>
 
         <div className="text-base">Disabled switch</div>
-        <SwitchCard codeLines={DISABLED_SWITCH_CODE_LINES}>
+        <Card codeLines={DISABLED_SWITCH_CODE_LINES}>
           <Switch disabled isChecked />
-        </SwitchCard>
+        </Card>
 
         <div className="text-base">Switch with a different fill color</div>
-        <SwitchCard codeLines={SWITCH_WITH_FILL_CODE_LINES}>
+        <Card codeLines={SWITCH_WITH_FILL_CODE_LINES}>
           <Switch fillColor="bg-green-600" isChecked />
-        </SwitchCard>
+        </Card>
 
         <div className="text-base">Switch with label, default position</div>
-        <SwitchCard codeLines={SWITCH_DEFAULT_LABEL_POSITION_CODE_LINES}>
+        <Card codeLines={SWITCH_DEFAULT_LABEL_POSITION_CODE_LINES}>
           <Switch label="Airplane mode" />
-        </SwitchCard>
+        </Card>
 
         <div className="text-base">Switch with label, positioned right</div>
-        <SwitchCard codeLines={SWITCH_RIGHT_LABEL_POSITION_CODE_LINES}>
+        <Card codeLines={SWITCH_RIGHT_LABEL_POSITION_CODE_LINES}>
           <Switch label="Airplane mode" labelPosition="right" />
-        </SwitchCard>
+        </Card>
 
         <div className="text-base">Switch with label, positioned top</div>
-        <SwitchCard codeLines={SWITCH_TOP_LABEL_POSITION_CODE_LINES}>
+        <Card codeLines={SWITCH_TOP_LABEL_POSITION_CODE_LINES}>
           <Switch label="Airplane mode" labelPosition="top" />
-        </SwitchCard>
+        </Card>
 
         <div className="text-base">Switch with label, positioned bottom</div>
-        <SwitchCard codeLines={SWITCH_BOTTOM_LABEL_POSITION_CODE_LINES}>
+        <Card codeLines={SWITCH_BOTTOM_LABEL_POSITION_CODE_LINES}>
           <Switch label="Airplane mode" labelPosition="bottom" />
-        </SwitchCard>
+        </Card>
       </div>
 
       <Divider />
