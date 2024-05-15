@@ -9,7 +9,6 @@ import {
 } from "./ToastComponent";
 import { Divider } from "@/app/components/Divider";
 import Link from "next/link";
-import { ToastCard } from "@/app/components/ToastCard";
 import {
   DESTRUCTIVE_TOAST_CODE_LINES,
   TOAST_AT_TOP_CODE_LINES,
@@ -19,6 +18,7 @@ import {
 } from "./constants";
 import { ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 import { DesignSystemWrapperPageFooter } from "@/app/components/DesignSystemWrapperPageFooter";
+import { Card } from "@/app/components/Card";
 
 export const ToastPageWrapper = () => {
   const [showDefaultToast, setShowDefaultToast] = useState(false);
@@ -97,7 +97,7 @@ export const ToastPageWrapper = () => {
 
         {/*  toast with heading */}
         <div className="text-base">Toast With Heading</div>
-        <ToastCard codeLines={TOAST_WITH_HEADING_CODE_LINES}>
+        <Card codeLines={TOAST_WITH_HEADING_CODE_LINES}>
           <ButtonComponent
             theme={ButtonThemeVariantType.OUTLINE}
             size={ButtonSizeVariantType.SM}
@@ -118,11 +118,11 @@ export const ToastPageWrapper = () => {
               onClose={() => setShowToastWithHeading(false)}
             />
           )}
-        </ToastCard>
+        </Card>
 
         {/* destructive toast*/}
         <div className="text-base">Destructive Toast</div>
-        <ToastCard codeLines={DESTRUCTIVE_TOAST_CODE_LINES}>
+        <Card codeLines={DESTRUCTIVE_TOAST_CODE_LINES}>
           <ButtonComponent
             theme={ButtonThemeVariantType.OUTLINE}
             size={ButtonSizeVariantType.SM}
@@ -144,11 +144,11 @@ export const ToastPageWrapper = () => {
               theme={ToastVariantThemeType.DANGER}
             />
           )}
-        </ToastCard>
+        </Card>
 
         {/*toast with CTA*/}
         <div className="text-base">Toast with CTA</div>
-        <ToastCard codeLines={TOAST_WITH_CTA_CODE_LINES}>
+        <Card codeLines={TOAST_WITH_CTA_CODE_LINES}>
           <ButtonComponent
             theme={ButtonThemeVariantType.OUTLINE}
             size={ButtonSizeVariantType.SM}
@@ -170,11 +170,11 @@ export const ToastPageWrapper = () => {
               actionMessage="Undo"
             />
           )}
-        </ToastCard>
+        </Card>
 
         {/*toast at top right*/}
         <div className="text-base">Toast at top right</div>
-        <ToastCard codeLines={TOAST_AT_TOP_CODE_LINES}>
+        <Card codeLines={TOAST_AT_TOP_CODE_LINES}>
           <ButtonComponent
             theme={ButtonThemeVariantType.OUTLINE}
             size={ButtonSizeVariantType.SM}
@@ -196,7 +196,7 @@ export const ToastPageWrapper = () => {
               placement={ToastPostionType.TOP_RIGHT}
             />
           )}
-        </ToastCard>
+        </Card>
       </div>
 
       <Divider />

@@ -15,7 +15,6 @@ import { ButtonComponent } from "../button/ButtonComponent";
 import { ButtonSizeVariantType, ButtonThemeVariantType } from "../button/types";
 import { ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 import { Divider } from "@/app/components/Divider";
-import { DropdownCard } from "@/app/components/DropdownCard";
 import {
   DEFAULT_DROPDOWN_CODE_LINES,
   DISABLED_ITEM_DROPDOWN_CODE_LINES,
@@ -25,6 +24,7 @@ import {
   RIGHT_SIDED_DROPDOWN_CODE_LINES,
 } from "./constants";
 import { DesignSystemWrapperPageFooter } from "@/app/components/DesignSystemWrapperPageFooter";
+import { Card } from "@/app/components/Card";
 
 export const DropdownPageWrapper = () => {
   return (
@@ -47,6 +47,7 @@ export const DropdownPageWrapper = () => {
                 <DropdownItem>Expired</DropdownItem>
               </DropdownSubGroupContent>
             </DropdownSubGroup>
+            <DropdownItem disabled>Activate</DropdownItem>
             <DropdownItem>Logout</DropdownItem>
           </DropdownContent>
         </Dropdown>
@@ -72,7 +73,7 @@ export const DropdownPageWrapper = () => {
         <div className="text-lg">Examples of Dropdowns</div>
 
         <div className="text-base">Default dropdown</div>
-        <DropdownCard codeLines={DEFAULT_DROPDOWN_CODE_LINES}>
+        <Card size="large" codeLines={DEFAULT_DROPDOWN_CODE_LINES}>
           <Dropdown>
             <DropdownTrigger>Open</DropdownTrigger>
             <DropdownContent>
@@ -81,10 +82,10 @@ export const DropdownPageWrapper = () => {
               <DropdownItem>Logout</DropdownItem>
             </DropdownContent>
           </Dropdown>
-        </DropdownCard>
+        </Card>
 
         <div className="text-base">Dropdown with Header</div>
-        <DropdownCard codeLines={DROPDOWN_WITH_HEADER_CODE_LINES}>
+        <Card size="large" codeLines={DROPDOWN_WITH_HEADER_CODE_LINES}>
           <Dropdown>
             <DropdownTrigger>Open</DropdownTrigger>
             <DropdownContent>
@@ -94,10 +95,10 @@ export const DropdownPageWrapper = () => {
               <DropdownItem>Logout</DropdownItem>
             </DropdownContent>
           </Dropdown>
-        </DropdownCard>
+        </Card>
 
         <div className="text-base">Nested dropdown</div>
-        <DropdownCard codeLines={NESTED_DROPDOWN_CODE_LINES}>
+        <Card size="large" codeLines={NESTED_DROPDOWN_CODE_LINES}>
           <Dropdown>
             <DropdownTrigger>Open</DropdownTrigger>
             <DropdownContent>
@@ -114,10 +115,10 @@ export const DropdownPageWrapper = () => {
               <DropdownItem>Logout</DropdownItem>
             </DropdownContent>
           </Dropdown>
-        </DropdownCard>
+        </Card>
 
         <div className="text-base">Dropdown with a disabled option</div>
-        <DropdownCard codeLines={DISABLED_ITEM_DROPDOWN_CODE_LINES}>
+        <Card size="large" codeLines={DISABLED_ITEM_DROPDOWN_CODE_LINES}>
           <Dropdown>
             <DropdownTrigger>Open</DropdownTrigger>
             <DropdownContent>
@@ -126,10 +127,10 @@ export const DropdownPageWrapper = () => {
               <DropdownItem disabled>Logout</DropdownItem>
             </DropdownContent>
           </Dropdown>
-        </DropdownCard>
+        </Card>
 
         <div className="text-base">Right sided dropdown</div>
-        <DropdownCard codeLines={RIGHT_SIDED_DROPDOWN_CODE_LINES}>
+        <Card size="large" codeLines={RIGHT_SIDED_DROPDOWN_CODE_LINES}>
           <Dropdown>
             <DropdownTrigger>Open</DropdownTrigger>
             <DropdownContent side="right">
@@ -138,7 +139,7 @@ export const DropdownPageWrapper = () => {
               <DropdownItem>Logout</DropdownItem>
             </DropdownContent>
           </Dropdown>
-        </DropdownCard>
+        </Card>
       </div>
 
       <Divider />
