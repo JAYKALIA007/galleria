@@ -13,7 +13,7 @@ enum OPTIONS_ENUM {
 }
 
 const USER_WIN_MESSAGE = "Wooohooo you win. LFG 🎉";
-const ADMIN_WIN_MESSAGE = "PC wins 😭 Hey, you can try again";
+const ADMIN_WIN_MESSAGE = "PC wins. Hey, you can try again 😭";
 const DRAW_MESSAGE = `Dang! It's a draw 🏳️`;
 
 const ICON_CLASSES = "h-24 w-24 md:w-40 md:h-40 rotate-90 scale-x-[-1]";
