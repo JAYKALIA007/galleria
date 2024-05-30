@@ -7,8 +7,6 @@ export const metadata = {
   keywords: ["wordle", "games"],
 };
 
-const WordlePage = () => {
-  return <Wordle />;
-};
+const WordlePage = () => <Wordle />;
 
 export default WordlePage;
