@@ -1,3 +1,4 @@
+import { SlideInAnimationContainer } from "@/app/components/SlideInAnimationContainer";
 import { RockPaperScissors } from "./RockPaperScissor";
 
 export const metadata = {
@@ -6,6 +7,10 @@ export const metadata = {
   keywords: ["RockPaperScissors", "games"],
 };
 
-const RockPaperScissorsPage = () => <RockPaperScissors />;
+const RockPaperScissorsPage = () => (
+  <SlideInAnimationContainer>
+    <RockPaperScissors />
+  </SlideInAnimationContainer>
+);
 
 export default RockPaperScissorsPage;
