@@ -133,7 +133,7 @@ export const RockPaperScissors = () => {
       <div className="flex">
         {userSelectedIcon && (
           <div className="flex flex-col gap-4 items-center">
-            <div className="underline underline-offset-4">User selects</div>
+            <div className="underline underline-offset-4">You selected</div>
             <motion.div
               animate={{
                 y: [0, -10, 10, 0],
@@ -149,7 +149,7 @@ export const RockPaperScissors = () => {
         )}
         {adminSelectedIcon && (
           <div className="flex flex-col gap-4 items-center">
-            <div className="underline underline-offset-4">Admin selects</div>
+            <div className="underline underline-offset-4">PC selected</div>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{

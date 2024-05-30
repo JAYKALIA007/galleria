@@ -20,7 +20,7 @@ export const Header: React.FC = () => {
             "text-blue-700 dark:text-blue-500 underline"
           }`}
         >
-          @jay_prakash07
+          @jay_kalia07
         </Link>
       </div>
       <div className="">
