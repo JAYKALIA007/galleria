@@ -1,4 +1,5 @@
 "use client";
+import { ConfettiAnimation } from "@/app/components/Confetti";
 import { PaperIcon } from "@/icons/PaperIcon";
 import { RockIcon } from "@/icons/RockIcon";
 import { ScissorsIcon } from "@/icons/ScissorsIcon";
@@ -10,6 +11,10 @@ enum OPTIONS_ENUM {
   PAPER = "PAPER",
   SCISSORS = "SCISSORS",
 }
+
+const USER_WIN_MESSAGE = "Wooohooo you win. LFG 🎉";
+const ADMIN_WIN_MESSAGE = "PC wins 😭 Hey, you can try again";
+const DRAW_MESSAGE = `Dang! It's a draw 🏳️`;
 
 const ICON_CLASSES = "h-24 w-24 md:w-40 md:h-40 rotate-90 scale-x-[-1]";
 const options = [
@@ -72,18 +77,27 @@ export const RockPaperScissors = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const winner = useMemo(() => {
+  const winningMessage = useMemo(() => {
     if (userSelects && adminSelects) {
       const result = outcomes[userSelects][adminSelects];
       if (result === "admin") {
-        return "PC wins 😭 Hey, you can try again";
+        return ADMIN_WIN_MESSAGE;
       } else if (result === "user") {
-        return "Wooohooo you win. LFG 🎉";
+        return USER_WIN_MESSAGE;
       } else {
-        return `Dang! It's a draw 🏳️`;
+        return DRAW_MESSAGE;
       }
     }
   }, [userSelects, adminSelects]);
+
+  const [showConfetti, setShowConfetti] = useState(false);
+
+  useEffect(() => {
+    setShowConfetti(true);
+    setTimeout(() => {
+      setShowConfetti(false);
+    }, 2000);
+  }, [winningMessage]);
 
   const userSelectedIcon = options.find(
     (option) => option.label === userSelects
@@ -122,7 +136,7 @@ export const RockPaperScissors = () => {
             <div className="underline underline-offset-4">User selects</div>
             <motion.div
               animate={{
-                y: [0, -10, 10, -10, 10, 0],
+                y: [0, -10, 10, 0],
               }}
               transition={{
                 duration: 0.6,
@@ -139,7 +153,7 @@ export const RockPaperScissors = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{
-                y: [0, -10, 10, -10, 10, 0],
+                y: [0, -10, 10, 0],
                 opacity: 1,
               }}
               transition={{
@@ -160,8 +174,11 @@ export const RockPaperScissors = () => {
           transition={{ delay: 1.5 }}
           className="font-semibold md:font-medium text-lg md:text-xl"
         >
-          {winner}
+          {winningMessage}
         </motion.div>
+      )}
+      {winningMessage === USER_WIN_MESSAGE && showConfetti && (
+        <ConfettiAnimation />
       )}
     </div>
   );
