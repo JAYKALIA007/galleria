@@ -159,7 +159,7 @@ export const RockPaperScissors = () => {
               transition={{
                 duration: 0.6,
                 ease: "easeInOut",
-                delay: 0.5,
+                delay: 0.2,
               }}
             >
               <div className="rotate-180 scale-y-[-1]">{adminSelectedIcon}</div>
@@ -171,7 +171,7 @@ export const RockPaperScissors = () => {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5 }}
+          transition={{ delay: 0.5 }}
           className="font-semibold md:font-medium text-lg md:text-xl"
         >
           {winningMessage}
