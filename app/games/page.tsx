@@ -14,6 +14,12 @@ const Games: React.FC = () => {
     <SlideInAnimationContainer>
       <div className="flex flex-col gap-2">
         <Link
+          href="/games/rock-paper-scissors"
+          className="hover:underline underline-offset-4"
+        >
+          Rock Paper Scissors
+        </Link>
+        <Link
           href="/games/wordle"
           className="hover:underline underline-offset-4"
         >
