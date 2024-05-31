@@ -25,6 +25,9 @@ export const Experience: React.FC = () => {
   const card3Ref = useRef<HTMLDivElement>(null);
   const isCard3InView = useInView(card3Ref, { once: true });
 
+  const resumeRef = useRef<HTMLDivElement>(null);
+  const isResumeInView = useInView(resumeRef, { once: true });
+
   const isBottomOfPage = useIsBottomOfPage();
 
   return (
@@ -48,7 +51,7 @@ export const Experience: React.FC = () => {
         animate={isCard3InView ? FINAL_STYLES : INITIAL_STYLES}
         transition={{
           ...SPRING_ANIMATION,
-          delay: !isBottomOfPage ? 0.25 : 2,
+          delay: isBottomOfPage ? 2 : 0.25,
         }}
         ref={card3Ref}
       >
@@ -61,11 +64,15 @@ export const Experience: React.FC = () => {
       >
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2.7, duration: 2 }}
+          animate={{ opacity: isResumeInView ? 1 : 0 }}
+          transition={{
+            delay: isBottomOfPage ? 2.7 : 0.25,
+            duration: 2,
+          }}
           className="flex gap-1 items-center"
           onMouseEnter={() => setIsHover(true)}
           onMouseLeave={() => setIsHover(false)}
+          ref={resumeRef}
         >
           View Full Résumé
           <motion.button animate={isHover ? { y: -3, x: 3 } : { y: 0, x: 0 }}>
