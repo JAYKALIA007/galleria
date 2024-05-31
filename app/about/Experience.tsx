@@ -1,7 +1,8 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import { useInView } from "framer-motion";
 import {
   DRIVE_RESUME_LINK,
   RIZZLE_ABOUT,
@@ -10,6 +11,7 @@ import {
 } from "./constants";
 import Link from "next/link";
 import { ExternalLinkIcon } from "lucide-react";
+import { useIsBottomOfPage } from "@/hooks/useIsBottomOfPage";
 
 const SPRING_ANIMATION = { duration: 2, type: "spring" };
 const FINAL_STYLES = { opacity: 1, y: 0 };
@@ -19,29 +21,39 @@ const SEE_MORE_LESS_BUTTON_STYLES =
 
 export const Experience: React.FC = () => {
   const [isHover, setIsHover] = useState(false);
+
+  const card3Ref = useRef<HTMLDivElement>(null);
+  const isCard3InView = useInView(card3Ref, { once: true });
+
+  const isBottomOfPage = useIsBottomOfPage();
+
   return (
     <div className="flex flex-col gap-10">
-      <motion.section
+      <motion.div
         initial={INITIAL_STYLES}
         animate={FINAL_STYLES}
         transition={{ ...SPRING_ANIMATION, delay: 1 }}
       >
         <ExperienceCard experience={RIZZLE_ABOUT} />
-      </motion.section>
-      <motion.section
+      </motion.div>
+      <motion.div
         initial={INITIAL_STYLES}
         animate={FINAL_STYLES}
         transition={{ ...SPRING_ANIMATION, delay: 1.5 }}
       >
         <ExperienceCard experience={TOPLYNE_ABOUT} />
-      </motion.section>
-      <motion.section
+      </motion.div>
+      <motion.div
         initial={INITIAL_STYLES}
-        animate={FINAL_STYLES}
-        transition={{ ...SPRING_ANIMATION, delay: 2 }}
+        animate={isCard3InView ? FINAL_STYLES : INITIAL_STYLES}
+        transition={{
+          ...SPRING_ANIMATION,
+          delay: !isBottomOfPage ? 0.25 : 2,
+        }}
+        ref={card3Ref}
       >
         <ExperienceCard experience={TCS_ABOUT} />
-      </motion.section>
+      </motion.div>
       <Link
         href={DRIVE_RESUME_LINK}
         target="_blank"
