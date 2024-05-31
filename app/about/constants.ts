@@ -1,5 +1,5 @@
 export const GITHUB_PROFILE_URL = "https://github.com/JAYKALIA007";
-export const TWITTER_PROFILE_URL = "https://twitter.com/jay_prakash07";
+export const TWITTER_PROFILE_URL = "https://twitter.com/jay_kalia07";
 export const LINKED_IN_PROFILE_URL =
   "https://www.linkedin.com/in/jay-prakash-07";
 export const GMAIL_ID_URL = "jp.kalia07@gmail.com";
