@@ -12,7 +12,7 @@ export const metadata = {
 const Games: React.FC = () => {
   return (
     <SlideInAnimationContainer>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 text-xs md:text-sm">
         <Link
           href="/games/rock-paper-scissors"
           className="hover:underline underline-offset-4"
