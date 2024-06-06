@@ -20,7 +20,7 @@ import { Card } from "@/app/components/Card";
 export const SwitchPageWrapper = () => {
   return (
     <div className="flex flex-col gap-12 mb-10 p-4 md:w-4/5 lg:w-full mx-auto">
-      <div className="my-2 md:leading-6">
+      <div className="my-2 text-xs md:text-sm leading-6">
         Display a control which allows the user to toggle between checked and
         unchecked states and opltionally show a label associated with it.
       </div>

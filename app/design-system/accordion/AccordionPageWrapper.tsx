@@ -17,7 +17,7 @@ import { DesignSystemWrapperPageFooter } from "@/app/components/DesignSystemWrap
 export const AccordionPageWrapper = () => {
   return (
     <div className="flex flex-col gap-12 mb-10 p-4 md:w-4/5 lg:w-full mx-auto">
-      <div className="my-2 md:leading-6">
+      <div className="my-2 text-xs md:text-sm leading-6">
         A menu composed of vertically stacked headers that reveal more details
         when triggered.
       </div>
