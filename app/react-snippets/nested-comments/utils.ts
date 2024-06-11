@@ -13,7 +13,7 @@ export const MOCK_COMMENTS_DATA = [
             replies: [],
           },
           {
-            id: "3",
+            id: "4",
             comment: "This is another grandchild comment",
             replies: [],
           },
