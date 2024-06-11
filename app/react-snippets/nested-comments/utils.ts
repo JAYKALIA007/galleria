@@ -23,7 +23,7 @@ export const MOCK_COMMENTS_DATA = [
   },
 ];
 
-export const NESTED_COMMENTS_GITHUB_URL = `https://github.com/JAYKALIA007/galleria/blob/master/app/react-snippets/nested-comments/NestedCOmments.tsx`;
+export const NESTED_COMMENTS_GITHUB_URL = `https://github.com/JAYKALIA007/galleria/blob/master/app/react-snippets/nested-comments/NestedComments.tsx`;
 
 export type CommentsType = Array<{
   id: string;
