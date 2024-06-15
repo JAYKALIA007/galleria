@@ -20,6 +20,12 @@ const DesignSystem: React.FC = () => (
           {`The Components`}
         </div>
         <Link
+          href={"/design-system/menu"}
+          className="hover:underline underline-offset-4"
+        >
+          Tab Menu
+        </Link>
+        <Link
           href={"/design-system/dropdown"}
           className="hover:underline underline-offset-4"
         >

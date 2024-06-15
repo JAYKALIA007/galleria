@@ -17,6 +17,7 @@ import {
 import { SlideInAnimationContainer } from "@/app/components/SlideInAnimationContainer";
 import Link from "next/link";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { Divider } from "@/app/components/Divider";
 
 export const NestedComments = () => {
   const [comments, setComments] = useState<CommentsType>(MOCK_COMMENTS_DATA);
@@ -54,6 +55,8 @@ export const NestedComments = () => {
             </ButtonComponent>
           </Link>
         </div>
+
+        <Divider />
 
         <div>
           <div className="flex gap-2">
