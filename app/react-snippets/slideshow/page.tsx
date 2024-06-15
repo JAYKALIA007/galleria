@@ -8,6 +8,7 @@ import {
   ButtonThemeVariantType,
 } from "@/app/design-system/button/types";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { Divider } from "@/app/components/Divider";
 
 export const metadata = {
   title: "Slideshow | React Snippets",
@@ -45,6 +46,8 @@ const Slideshow = () => {
           </ButtonComponent>
         </Link>
       </div>
+
+      <Divider />
 
       <div className="flex flex-wrap gap-10 justify-center">
         {Array(4)
