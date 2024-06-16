@@ -50,7 +50,7 @@ export const Toggle: React.FC<TogglePropsType> = ({ type }) => {
   const handleAddItem = useCallback(
     (item: OptionType) => {
       if (type === ToggleType.MULTIPLE) {
-        let updatedOptions = [];
+        let updatedOptions: Array<OptionType> = [];
         if (!selectedOptions.length) {
           updatedOptions = [item];
         } else {
