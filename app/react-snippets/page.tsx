@@ -20,6 +20,12 @@ const ReactSnippets: React.FC = () => {
     <SlideInAnimationContainer>
       <div className="flex flex-col gap-2 text-xs md:text-sm">
         <Link
+          href={"/react-snippets/toggle-group"}
+          className="hover:underline underline-offset-4"
+        >
+          Toggle Group
+        </Link>
+        <Link
           href={"/react-snippets/toolbar"}
           className="hover:underline underline-offset-4"
         >
