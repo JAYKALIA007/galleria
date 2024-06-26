@@ -86,7 +86,7 @@ export const AddTags: React.FC<AddTagsPropsType> = () => {
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="cursor-text bg-gray-100 dark:bg-gray-800 p-1.5 focus:outline-none max-w-24 overflow-scroll"
+          className="cursor-text bg-transparent focus:outline-none flex-1 p-1.5 rounded-md"
           autoFocus
           ref={inputRef}
           placeholder="+ Add tag"
