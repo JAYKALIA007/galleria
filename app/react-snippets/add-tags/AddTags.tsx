@@ -126,7 +126,7 @@ export const AddTags: React.FC<AddTagsPropsType> = () => {
                   <button
                     key={tag}
                     onClick={() => handleAddTag(tag)}
-                    className="hover:bg-gray-200 hover:dark:bg-gray-950 w-full p-2 rounded-md flex justify-start"
+                    className="hover:bg-gray-200 hover:dark:bg-gray-950 focus:bg-gray-200 focus:dark:bg-gray-950 focus:outline-none w-full p-2 rounded-md flex justify-start"
                   >
                     {tag}
                   </button>
