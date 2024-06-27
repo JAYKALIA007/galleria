@@ -2,3 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+.main-container::before {
+  --size: 200px;
+  --line: rgb(228, 228, 228);
+
+  content: "";
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  background: linear-gradient(
+        90deg,
+        var(--line) 1px,
+        transparent 1px var(--size)
+      )
+      20% 20% / var(--size) var(--size),
+    linear-gradient(var(--line) 1px, transparent 1px var(--size)) 10% 10% /
+      var(--size) var(--size);
+
+  mask: linear-gradient(-15deg, transparent 25%, white);
+}
+
+.dark .main-container::before {
+  --line: rgb(48, 48, 48);
+}
+
+@media (max-width: 768px) {
+  .main-container::before {
+    --size: 150px;
+    --line: rgb(230, 228, 228);
+  }
+  .dark .main-container::before {
+    --line: rgb(40, 40, 40);
+  }
+}

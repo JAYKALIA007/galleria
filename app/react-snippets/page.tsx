@@ -17,40 +17,42 @@ export const metadata = {
 
 const ReactSnippets: React.FC = () => {
   return (
-    <SlideInAnimationContainer>
-      <div className="flex flex-col gap-2 text-xs md:text-sm">
-        <Link
-          href={"/react-snippets/add-tags"}
-          className="hover:underline underline-offset-4"
-        >
-          Add tags
-        </Link>
-        <Link
-          href={"/react-snippets/toggle-group"}
-          className="hover:underline underline-offset-4"
-        >
-          Toggle Group
-        </Link>
-        <Link
-          href={"/react-snippets/toolbar"}
-          className="hover:underline underline-offset-4"
-        >
-          Action Toolbar
-        </Link>
-        <Link
-          href={"/react-snippets/nested-comments"}
-          className="hover:underline underline-offset-4"
-        >
-          Nested comments
-        </Link>
-        <Link
-          href={"/react-snippets/slideshow"}
-          className="hover:underline underline-offset-4"
-        >
-          Slide show on hover
-        </Link>
-      </div>
-    </SlideInAnimationContainer>
+    <div className="main-container">
+      <SlideInAnimationContainer>
+        <div className="flex flex-col gap-2 text-xs md:text-sm">
+          <Link
+            href={"/react-snippets/add-tags"}
+            className="hover:underline underline-offset-4"
+          >
+            Add tags
+          </Link>
+          <Link
+            href={"/react-snippets/toggle-group"}
+            className="hover:underline underline-offset-4"
+          >
+            Toggle Group
+          </Link>
+          <Link
+            href={"/react-snippets/toolbar"}
+            className="hover:underline underline-offset-4"
+          >
+            Action Toolbar
+          </Link>
+          <Link
+            href={"/react-snippets/nested-comments"}
+            className="hover:underline underline-offset-4"
+          >
+            Nested comments
+          </Link>
+          <Link
+            href={"/react-snippets/slideshow"}
+            className="hover:underline underline-offset-4"
+          >
+            Slide show on hover
+          </Link>
+        </div>
+      </SlideInAnimationContainer>
+    </div>
   );
 };
 
