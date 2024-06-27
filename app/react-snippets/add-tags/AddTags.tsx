@@ -1,4 +1,5 @@
 "use client";
+
 import React, {
   useCallback,
   useEffect,
@@ -13,7 +14,30 @@ type AddTagsPropsType = {};
 
 export const AddTags: React.FC<AddTagsPropsType> = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedTags, setSelectedTags] = useState<Array<string>>();
+  const [selectedTags, setSelectedTags] = useState<Array<string>>([]);
+  const [isInputFocused, setIsInputFocused] = useState(false);
+
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const suggestionsRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        suggestionsRef.current &&
+        !suggestionsRef.current.contains(event.target as Node) &&
+        inputRef.current &&
+        !inputRef.current.contains(event.target as Node)
+      ) {
+        setIsInputFocused(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     const handleKeyListener = (event: KeyboardEvent) => {
@@ -42,16 +66,12 @@ export const AddTags: React.FC<AddTagsPropsType> = () => {
     return filtered;
   }, [searchQuery, selectedTags]);
 
-  const inputFocus = () => {
-    inputRef?.current?.focus();
-  };
-
   const handleAddTag = useCallback(
     (tag: string) => {
       const updatedTags = selectedTags ? [...selectedTags, tag] : [tag];
       setSelectedTags(updatedTags);
       setSearchQuery("");
-      inputFocus();
+      setIsInputFocused(false);
     },
     [selectedTags]
   );
@@ -60,41 +80,46 @@ export const AddTags: React.FC<AddTagsPropsType> = () => {
     (tag: string) => {
       const updatedTags = selectedTags?.filter((item) => item !== tag);
       setSelectedTags(updatedTags);
-      inputFocus();
+      setIsInputFocused(false);
     },
     [selectedTags]
   );
 
-  const inputRef = useRef<HTMLInputElement | null>(null);
-
   return (
     <div className="relative">
       <div className="bg-gray-100 dark:bg-gray-800 rounded-md shadow-md flex gap-2 flex-wrap p-1.5">
-        {selectedTags &&
-          selectedTags.map((tag) => (
-            <div
-              key={tag}
-              className="bg-gray-200 dark:bg-gray-950 p-1.5 rounded-md flex gap-2 items-center shadow-md"
+        {selectedTags.map((tag) => (
+          <div
+            key={tag}
+            className="bg-gray-200 dark:bg-gray-950 p-1.5 rounded-md flex gap-2 items-center shadow-md"
+          >
+            {tag}
+            <button
+              onClick={() => handleRemoveTag(tag)}
+              aria-label={`Remove tag ${tag}`}
             >
-              {tag}
-              <button onClick={() => handleRemoveTag(tag)}>
-                <Cross1Icon height={10} width={10} />
-              </button>
-            </div>
-          ))}
+              <Cross1Icon height={10} width={10} className="ml-1" />
+            </button>
+          </div>
+        ))}
         <input
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="cursor-text bg-transparent focus:outline-none flex-1 p-1.5 rounded-md"
-          autoFocus
+          className="cursor-text bg-transparent focus:outline-none flex-1 p-1.5 rounded-md w-20"
           ref={inputRef}
           placeholder="+ Add tag"
+          onFocus={() => {
+            setIsInputFocused(true);
+          }}
         />
       </div>
-      {searchQuery.trim().length > 0 && (
+      {isInputFocused && (
         <div className="flex w-full justify-center items-center">
-          <div className="bg-gray-100 dark:bg-gray-800 mt-6 shadow-lg p-1.5 w-60 rounded-md max-h-40 overflow-scroll">
+          <div
+            ref={suggestionsRef}
+            className="bg-gray-100 dark:bg-gray-800 mt-6 shadow-lg p-1.5 w-60 rounded-md max-h-40 overflow-scroll"
+          >
             {filteredTags.length > 0 ? (
               <div className="flex flex-col gap-1">
                 {filteredTags.map((tag) => (
