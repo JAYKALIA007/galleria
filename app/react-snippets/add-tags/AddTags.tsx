@@ -94,8 +94,11 @@ export const AddTags: React.FC<AddTagsPropsType> = () => {
             className="bg-gray-200 dark:bg-gray-950 p-1.5 rounded-md flex gap-2 items-center shadow-md"
           >
             {tag}
-            <button onClick={() => handleRemoveTag(tag)}>
-              <Cross1Icon height={10} width={10} />
+            <button
+              onClick={() => handleRemoveTag(tag)}
+              aria-label={`Remove tag ${tag}`}
+            >
+              <Cross1Icon height={10} width={10} className="ml-1" />
             </button>
           </div>
         ))}
@@ -103,7 +106,7 @@ export const AddTags: React.FC<AddTagsPropsType> = () => {
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="cursor-text bg-transparent focus:outline-none flex-1 p-1.5 rounded-md"
+          className="cursor-text bg-transparent focus:outline-none flex-1 p-1.5 rounded-md w-20"
           ref={inputRef}
           placeholder="+ Add tag"
           onFocus={() => {
