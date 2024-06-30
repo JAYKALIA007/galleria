@@ -58,7 +58,7 @@ export const DropdownPageWrapper = () => {
           >
             <GitHubLogoIcon />
             <span>
-              Code
+              Code{" "}
               <span className="hidden md:inline-block">
                 of the Dropdown Component
               </span>
