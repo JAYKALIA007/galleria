@@ -8,7 +8,7 @@ import {
   ButtonThemeVariantType,
 } from "@/app/design-system/button/types";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { Toolbar } from "./Toolbar";
+import { Toolbar, Toolbar2 } from "./Toolbar";
 import { Divider } from "@/app/components/Divider";
 import { TOOLBAR_GITHUB_URL } from "./constants";
 
@@ -33,8 +33,31 @@ export const ToolbarWrapper = () => (
 
       <Divider />
 
-      <div className="h-40 w-full flex justify-center items-center">
-        <Toolbar />
+      <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4">
+          <div className="text-base underline underline-offset-4">
+            Toolbar 1
+          </div>
+          <div className="text-xs md:text-sm">
+            Shows active state with a background
+          </div>
+          <div className="h-40 w-full flex justify-center items-center border border-gray-200 dark:border-gray-800 rounded-lg">
+            <Toolbar />
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-4">
+          <div className="text-base underline underline-offset-4">
+            Toolbar 2
+          </div>
+          <div className="text-xs md:text-sm">
+            Shows hovered state with a background and the active state as
+            underlined
+          </div>
+          <div className="h-40 w-full flex justify-center items-center border border-gray-200 dark:border-gray-800 rounded-lg">
+            <Toolbar2 />
+          </div>
+        </div>
       </div>
 
       <Divider />
