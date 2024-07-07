@@ -130,6 +130,6 @@ DropdownSubGroupContent.displayName = "DropdownSubGroupContent";
 const styles = {
   dropdownContent: `p-1.5 border flex flex-col gap-1 shadow-lg rounded-md min-w-32 md:min-w-40 border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-950`,
   dropdownHeader: `text-sm font-semibold border-b dark:border-gray-800 p-2`,
-  dropdownItem: `text-xs p-2 cursor-pointer rounded-md hover:bg-gray-200 hover:dark:bg-gray-800 disabled:cursor-not-allowed focus:bg-gray-200 focus:dark:bg-gray-950 focus:outline-none`,
+  dropdownItem: `text-xs p-2 cursor-pointer rounded-md hover:bg-gray-200 hover:dark:bg-gray-800 disabled:cursor-not-allowed focus:bg-gray-200 focus:dark:bg-gray-800 focus:outline-none`,
   dropdownTrigger: `h-9 px-3 text-xs border rounded-md flex justify-center items-center cursor-pointer w-20 disabled:cursor-not-allowed disabled:opacity-50 border-gray-200 bg-white hover:bg-gray-200 dark:border-gray-800  dark:bg-gray-950 dark:text-white dark:hover:bg-gray-800`,
 };
