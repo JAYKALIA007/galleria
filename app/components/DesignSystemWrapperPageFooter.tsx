@@ -20,8 +20,8 @@ export const DesignSystemWrapperPageFooter: React.FC<
       </div>
 
       <div className="text-xs">
-        P.S. - I&apos;m planning on adding documentation and code samples soon.
-        Meanwhile you can see the{" "}
+        P.S. - You can also see the code samples attached with the examples. For
+        a detailed view, you can see the{" "}
         <Link href={url} target="_blank" className="text-blue-600">
           code on github.
         </Link>
