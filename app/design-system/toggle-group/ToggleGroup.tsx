@@ -9,12 +9,12 @@ export enum TOGGLE_GROUP_TYPE {
 }
 
 export const ToggleGroup = ({
-  children,
   type = TOGGLE_GROUP_TYPE.SINGLE,
+  children,
   className,
 }: {
-  children: Array<ReactElement>;
   type?: TOGGLE_GROUP_TYPE;
+  children: Array<ReactElement>;
   className?: string;
 }) => {
   const [selectedOptions, setSelectedOptions] = useState<Array<string>>([]);
@@ -24,9 +24,9 @@ export const ToggleGroup = ({
       setSelectedOptions([option]);
     } else {
       setSelectedOptions((prev) =>
-        prev?.includes(option)
+        prev.includes(option)
           ? prev.filter((item) => option !== item)
-          : prev?.concat(option)
+          : prev.concat(option)
       );
     }
   };
@@ -35,7 +35,7 @@ export const ToggleGroup = ({
     <div className={`flex gap-2 ${className}`}>
       {children.map((child) =>
         React.cloneElement(child, {
-          isSelected: selectedOptions?.includes(child.props.value),
+          isSelected: selectedOptions.includes(child.props.value),
           onToggle: () => handleChangeSelectedOptions(child.props.value),
         })
       )}
@@ -44,16 +44,16 @@ export const ToggleGroup = ({
 };
 
 export const ToggleItem = ({
-  children,
   value,
   isSelected,
   onToggle,
+  children,
   className,
 }: {
-  children: ReactNode;
   value: string;
   isSelected?: boolean;
   onToggle?: () => void;
+  children: ReactNode;
   className?: string;
 }) => {
   return (
