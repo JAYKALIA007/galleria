@@ -15,6 +15,8 @@ import { Card } from "@/app/components/Card";
 import { DesignSystemWrapperPageFooter } from "@/app/components/DesignSystemWrapperPageFooter";
 import {
   DEFAULT_TOGGLE_GROUP_CODE_LINES,
+  DISABLED_TOGGLE_GROUP_CODE_LINES,
+  DISABLED_TOGGLE_ITEM_CODE_LINES,
   MUTLI_SELECT_TOGGLE_GROUP_CODE_LINES,
   MUTLI_SELECT_TOGGLE_GROUP_WITH_ICON_CODE_LINES,
   TOGGLE_GROUP_COMPONENT_GITHUB_URL,
@@ -94,6 +96,26 @@ export const ToggleGroupPageWrapper = () => {
             <ToggleItem value="underline">
               <UnderlineIcon className="h-4 w-4" />
             </ToggleItem>
+          </ToggleGroup>
+        </Card>
+
+        <div className="text-base">With toggle group disabled</div>
+        <Card codeLines={DISABLED_TOGGLE_GROUP_CODE_LINES}>
+          <ToggleGroup isDisabled>
+            <ToggleItem value="A">A</ToggleItem>
+            <ToggleItem value="B">B</ToggleItem>
+            <ToggleItem value="C">C</ToggleItem>
+          </ToggleGroup>
+        </Card>
+
+        <div className="text-base">With toggle item disabled</div>
+        <Card codeLines={DISABLED_TOGGLE_ITEM_CODE_LINES}>
+          <ToggleGroup>
+            <ToggleItem value="A" isDisabled>
+              A
+            </ToggleItem>
+            <ToggleItem value="B">B</ToggleItem>
+            <ToggleItem value="C">C</ToggleItem>
           </ToggleGroup>
         </Card>
       </div>
