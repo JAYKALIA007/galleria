@@ -8,7 +8,7 @@ export const CodeSample: React.FC<CodeSamplePropsType> = ({ codeLines }) => {
   return (
     <div className="w-full max-h-[100%] overflow-scroll">
       <pre
-        className="mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border border-gray-900 p-4 bg-zinc-900 text-gray-300"
+        className="mb-4 mt-6 max-h-[650px] p-4 overflow-x-auto rounded-lg border border-gray-100 bg-gray-100 text-gray-800 dark:border-gray-900 dark:bg-zinc-900 dark:text-gray-300"
         data-language="tsx"
         data-theme="default"
       >
