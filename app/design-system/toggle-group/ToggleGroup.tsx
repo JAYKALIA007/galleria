@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import React, { ReactElement, ReactNode, useState } from "react";
 
 const ACTIVE_OPTION_CLASSES = "bg-gray-200 dark:bg-gray-800";
@@ -10,10 +11,12 @@ export enum TOGGLE_GROUP_TYPE {
 
 export const ToggleGroup = ({
   type = TOGGLE_GROUP_TYPE.SINGLE,
+  isDisabled,
   children,
   className,
 }: {
   type?: TOGGLE_GROUP_TYPE;
+  isDisabled?: boolean;
   children: Array<ReactElement>;
   className?: string;
 }) => {
@@ -32,11 +35,18 @@ export const ToggleGroup = ({
   };
 
   return (
-    <div className={`flex gap-2 ${className}`}>
+    <div
+      className={classNames(
+        "flex gap-2",
+        isDisabled && "cursor-not-allowed",
+        className
+      )}
+    >
       {children.map((child) =>
         React.cloneElement(child, {
           isSelected: selectedOptions.includes(child.props.value),
           onToggle: () => handleChangeSelectedOptions(child.props.value),
+          isDisabled: child.props.isDisabled || isDisabled,
         })
       )}
     </div>
@@ -46,12 +56,14 @@ export const ToggleGroup = ({
 export const ToggleItem = ({
   value,
   isSelected,
+  isDisabled,
   onToggle,
   children,
   className,
 }: {
   value: string;
   isSelected?: boolean;
+  isDisabled?: boolean;
   onToggle?: () => void;
   children: ReactNode;
   className?: string;
@@ -59,9 +71,13 @@ export const ToggleItem = ({
   return (
     <button
       onClick={onToggle}
-      className={`${BUTTON_CLASSES} ${
-        isSelected && ACTIVE_OPTION_CLASSES
-      } ${className}`}
+      className={classNames(
+        BUTTON_CLASSES,
+        isSelected && ACTIVE_OPTION_CLASSES,
+        isDisabled && `cursor-not-allowed opacity-50`,
+        className
+      )}
+      disabled={isDisabled}
     >
       {children}
     </button>

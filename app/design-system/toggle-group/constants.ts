@@ -23,3 +23,19 @@ export const MUTLI_SELECT_TOGGLE_GROUP_WITH_ICON_CODE_LINES = [
   `  <ToggleItem value="underline"> <UnderlineIcon /> </ToggleItem>`,
   `</ToggleGroup>`,
 ];
+
+export const DISABLED_TOGGLE_GROUP_CODE_LINES = [
+  `<ToggleGroup isDisabled>`,
+  `  <ToggleItem value="A">A</ToggleItem>`,
+  `  <ToggleItem value="B">B</ToggleItem>`,
+  `  <ToggleItem value="C">C</ToggleItem>`,
+  `</ToggleGroup>`,
+];
+
+export const DISABLED_TOGGLE_ITEM_CODE_LINES = [
+  `<ToggleGroup>`,
+  `  <ToggleItem value="A" isDisabled>A</ToggleItem>`,
+  `  <ToggleItem value="B">B</ToggleItem>`,
+  `  <ToggleItem value="C">C</ToggleItem>`,
+  `</ToggleGroup>`,
+];
