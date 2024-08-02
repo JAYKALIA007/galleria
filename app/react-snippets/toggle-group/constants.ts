@@ -15,3 +15,5 @@ export enum ToggleType {
 }
 
 export const TOGGLE_GROUP_GITHUB_URL = `https://github.com/JAYKALIA007/galleria/blob/master/app/react-snippets/toggle-group/ToggleGroup.tsx`;
+
+export const TOGGLE_GROUP_DESIGN_SYSTEM_URL = `https://www.jaykalia.dev/design-system/toggle-group`

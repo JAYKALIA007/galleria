@@ -9,6 +9,7 @@ import React, { useCallback, useState } from "react";
 import {
   BUTTON_OPTIONS,
   OptionType,
+  TOGGLE_GROUP_DESIGN_SYSTEM_URL,
   TOGGLE_GROUP_GITHUB_URL,
   ToggleType,
 } from "./constants";
@@ -129,8 +130,10 @@ export const ToggleContainer = () => {
         <Divider />
 
         <div className="text-[10px] md:text-xs">
-          Will soon be building a design system for this too. Be sure to check
-          it out.
+          Please check out the design system for this {" "}
+          <Link href={TOGGLE_GROUP_DESIGN_SYSTEM_URL} target="_blank" className="text-blue-600">
+            here.
+          </Link>
         </div>
       </div>
     </SlideInAnimationContainer>
