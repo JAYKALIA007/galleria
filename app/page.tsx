@@ -35,6 +35,13 @@ export default function Home() {
             >
               React Snippets
             </Link>
+            <Link
+              href="/npm-packages"
+              className="hover:underline underline-offset-4"
+            >
+              Npm Packages{" "}
+              <span className="font-thin">(Open-sourced projects)</span>
+            </Link>
           </div>
         </div>
       </SlideInAnimationContainer>
