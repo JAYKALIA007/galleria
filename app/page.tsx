@@ -1,9 +1,29 @@
 // TODO: a common link component
+"use client";
 import Head from "next/head";
 import Link from "next/link";
 import { SlideInAnimationContainer } from "./components/SlideInAnimationContainer";
-import { ABOUT_CONTENT } from "./constants";
+import { ABOUT_CONTENT, GOOGLE_TRACKING_ID } from "./constants";
+import ReactGA from "react-ga";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+
 export default function Home() {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && GOOGLE_TRACKING_ID) {
+      ReactGA.initialize(GOOGLE_TRACKING_ID);
+      ReactGA.pageview(window.location.pathname + window.location.search);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (pathname) {
+      ReactGA.pageview(pathname);
+    }
+  }, [pathname]);
+
   return (
     <div className="main-container">
       <SlideInAnimationContainer>
