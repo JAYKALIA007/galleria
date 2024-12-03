@@ -62,6 +62,12 @@ export default function Home() {
               Npm Packages{" "}
               <span className="font-thin">(Open-sourced projects)</span>
             </Link>
+            <Link
+              href="/reading-list"
+              className="hover:underline underline-offset-4"
+            >
+              Reading List
+            </Link>
           </div>
         </div>
       </SlideInAnimationContainer>
