@@ -9,36 +9,43 @@ type ListItemProps = ComponentPropsWithoutRef<"li">;
 type AnchorProps = ComponentPropsWithoutRef<"a">;
 type BlockquoteProps = ComponentPropsWithoutRef<"blockquote">;
 
-const TEXT_CLASSES = `text-gray-800 dark:text-gray-300`;
-const LINK_TEXT_CLASSES = `text-blue-700 dark:text-blue-500 cursor:`;
+const TEXT_COLOR_CLASSES = `text-gray-800 dark:text-gray-300`;
+const LINK_TEXT_COLOR_CLASSES = `text-blue-700 dark:text-blue-500 cursor:`;
+const TEXT_SIZE_CLASSES = `text-xs md:text-[10px]`;
 
 const components = {
   h1: (props: HeadingProps) => (
     <h1
-      className={`${TEXT_CLASSES} text-lg md:text-base font-medium pt-12 my-2 fade-in`}
+      className={`${TEXT_COLOR_CLASSES} leading-6 text-base md:text-sm font-medium my-2 fade-in`}
       {...props}
     />
   ),
   h2: (props: HeadingProps) => (
     <h2
-      className={`${TEXT_CLASSES} text-base md:text-sm font-medium mt-6 mb-3`}
+      className={`${TEXT_COLOR_CLASSES} leading-6 text-sm md:text-xs font-medium mt-6 mb-3`}
       {...props}
     />
   ),
   h3: (props: HeadingProps) => (
     <h3
-      className={`${TEXT_CLASSES} text-sm md:text-xs font-medium mt-8 mb-3`}
+      className={`${TEXT_COLOR_CLASSES} leading-6 text-xs md:text-[10px] font-medium mt-8 mb-3`}
       {...props}
     />
   ),
   p: (props: ParagraphProps) => (
-    <p className={`${TEXT_CLASSES} leading-snug`} {...props} />
+    <p className={`${TEXT_COLOR_CLASSES} leading-6 leading-snug`} {...props} />
   ),
   ol: (props: ListProps) => (
-    <ol className={`${TEXT_CLASSES} list-decimal pl-5 space-y-2`} {...props} />
+    <ol
+      className={`${TEXT_COLOR_CLASSES} ${TEXT_SIZE_CLASSES} leading-4 list-decimal pl-5 space-y-2`}
+      {...props}
+    />
   ),
   ul: (props: ListProps) => (
-    <ul className={`${TEXT_CLASSES} list-disc pl-5 space-y-1`} {...props} />
+    <ul
+      className={`${TEXT_COLOR_CLASSES} ${TEXT_SIZE_CLASSES} leading-4 list-disc pl-5 space-y-1`}
+      {...props}
+    />
   ),
   li: (props: ListItemProps) => <li className="my-2" {...props} />,
   em: (props: ComponentPropsWithoutRef<"em">) => (
@@ -48,7 +55,7 @@ const components = {
     <strong className="font-medium" {...props} />
   ),
   a: ({ href, children, ...props }: AnchorProps) => {
-    const className = `${LINK_TEXT_CLASSES} hover:underline underline-offset-4`;
+    const className = `${LINK_TEXT_COLOR_CLASSES} ${TEXT_SIZE_CLASSES} hover:underline underline-offset-4`;
     if (href?.startsWith("/")) {
       return (
         <Link href={href} className={className} {...props}>
