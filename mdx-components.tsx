@@ -11,24 +11,24 @@ type BlockquoteProps = ComponentPropsWithoutRef<"blockquote">;
 
 const TEXT_COLOR_CLASSES = `text-gray-800 dark:text-gray-300`;
 const LINK_TEXT_COLOR_CLASSES = `text-blue-700 dark:text-blue-500 cursor:`;
-const TEXT_SIZE_CLASSES = `text-xs md:text-[10px]`;
+const TEXT_SIZE_CLASSES = `text-xs`;
 
 const components = {
   h1: (props: HeadingProps) => (
     <h1
-      className={`${TEXT_COLOR_CLASSES} leading-6 text-base md:text-sm font-medium my-2 fade-in`}
+      className={`${TEXT_COLOR_CLASSES} leading-6 md:text-base text-sm font-medium my-2 fade-in`}
       {...props}
     />
   ),
   h2: (props: HeadingProps) => (
     <h2
-      className={`${TEXT_COLOR_CLASSES} leading-6 text-sm md:text-xs font-medium mt-6 mb-3`}
+      className={`${TEXT_COLOR_CLASSES} leading-6 md:text-sm text-xs font-medium mt-6 mb-3`}
       {...props}
     />
   ),
   h3: (props: HeadingProps) => (
     <h3
-      className={`${TEXT_COLOR_CLASSES} leading-6 text-xs md:text-[10px] font-medium mt-8 mb-3`}
+      className={`${TEXT_COLOR_CLASSES} leading-6 md:text-xs text-[10px] font-medium mt-8 mb-3`}
       {...props}
     />
   ),
