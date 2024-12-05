@@ -76,15 +76,17 @@ export const Header: React.FC = () => {
 };
 
 const AnimatedHeader: React.FC = React.memo(() => {
-  const isShowingUsername = document
-    .getElementById("animated-header")
-    ?.textContent?.includes(TWITTER_USERNAME);
-
-  const [currentHeaderIndex, setCurrentHeaderIndex] = useState(
-    isShowingUsername ? 1 : 0
-  );
+  const [currentHeaderIndex, setCurrentHeaderIndex] = useState(0);
 
   useEffect(() => {
+    const isShowingUsername =
+      typeof window !== "undefined" &&
+      document
+        .getElementById("animated-header")
+        ?.textContent?.includes(TWITTER_USERNAME);
+
+    setCurrentHeaderIndex(isShowingUsername ? 1 : 0);
+
     const interval = setInterval(() => {
       setCurrentHeaderIndex(
         (prev) => (prev + 1) % HEADER_TEXTS_WITH_ICON.length
@@ -109,7 +111,7 @@ const AnimatedHeader: React.FC = React.memo(() => {
         }}
         className={`flex gap-1 items-center text-sm`}
       >
-        <div className="animated-header">
+        <div id="animated-header" className="animated-header">
           {HEADER_TEXTS_WITH_ICON[currentHeaderIndex].label}
         </div>
         {HEADER_TEXTS_WITH_ICON[currentHeaderIndex].icon}
@@ -117,6 +119,8 @@ const AnimatedHeader: React.FC = React.memo(() => {
     </AnimatePresence>
   );
 });
+
+AnimatedHeader.displayName = "AnimatedHeader";
 
 const TwitterUrlHeader = ({ pathname }: { pathname: string }) => {
   return (
