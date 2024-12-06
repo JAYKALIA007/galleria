@@ -52,15 +52,15 @@ export const Header: React.FC = () => {
 
   return (
     <div className="m-2 p-2 relative flex justify-between items-center">
-      <div
-        className="w-full gap-[110px] sm:gap-20 md:gap-96 lg:gap-40 xl:gap-96 flex items-baseline mx-2 md:mx-10"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
+      <div className="flex items-baseline w-full justify-between mx-2 md:mx-8">
         <Link href="/" className="underline underline-offset-4 text-lg">
           Home
         </Link>
-        <div id="animated-header">
+        <div
+          id="animated-header"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
           {isNameHovered ? (
             <TwitterUrlHeader pathname={pathname} />
           ) : (
@@ -68,7 +68,7 @@ export const Header: React.FC = () => {
           )}
         </div>
       </div>
-      <div className="">
+      <div>
         <ModeToggle />
       </div>
     </div>
@@ -79,13 +79,7 @@ const AnimatedHeader: React.FC = React.memo(() => {
   const [currentHeaderIndex, setCurrentHeaderIndex] = useState(0);
 
   useEffect(() => {
-    const isShowingUsername =
-      typeof window !== "undefined" &&
-      document
-        .getElementById("animated-header")
-        ?.textContent?.includes(TWITTER_USERNAME);
-
-    setCurrentHeaderIndex(isShowingUsername ? 1 : 0);
+    setCurrentHeaderIndex(1);
 
     const interval = setInterval(() => {
       setCurrentHeaderIndex(
