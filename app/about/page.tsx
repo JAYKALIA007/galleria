@@ -6,8 +6,8 @@ export const metadata = {
   keywords: ["jay-kalia", "jays-blog", "jay-prakash"],
 };
 
-const ToastPage = () => {
+const AboutPage = () => {
   return <About />;
 };
 
-export default ToastPage;
+export default AboutPage;
