@@ -4,7 +4,7 @@ export const LINKED_IN_PROFILE_URL =
   "https://www.linkedin.com/in/jay-prakash-07";
 export const GMAIL_ID_URL = "jp.kalia07@gmail.com";
 export const DRIVE_RESUME_LINK =
-  "https://drive.google.com/file/d/1vA-6thUKwnt8nLRUm-i0pZ-6X4tdR2Wz/view?usp=sharing";
+  "https://drive.google.com/file/d/1q_T_DGZjg68BEvYQdPAnBGFlmx3qaxI3/view?usp=sharing";
 
 export const RIZZLE_ABOUT = {
   start: "2024",
