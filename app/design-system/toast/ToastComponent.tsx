@@ -103,7 +103,7 @@ export const ToastComponent: React.FC<ToastPropsType> = ({
               size={ButtonSizeVariantType.XS}
               theme={ButtonThemeVariantType.GHOST}
             >
-              Try Again
+              {actionMessage}
             </ButtonComponent>
           )}
         </div>

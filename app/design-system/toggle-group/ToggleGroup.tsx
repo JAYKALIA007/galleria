@@ -70,7 +70,7 @@ export const ToggleItem = ({
 }) => {
   return (
     <button
-      onClick={onToggle}
+      onClick={!isDisabled ? onToggle : undefined}
       className={classNames(
         BUTTON_CLASSES,
         isSelected && ACTIVE_OPTION_CLASSES,

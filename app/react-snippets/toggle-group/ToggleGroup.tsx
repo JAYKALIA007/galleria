@@ -130,8 +130,12 @@ export const ToggleContainer = () => {
         <Divider />
 
         <div className="text-[10px] md:text-xs">
-          Please check out the design system for this {" "}
-          <Link href={TOGGLE_GROUP_DESIGN_SYSTEM_URL} target="_blank" className="text-blue-600">
+          Please check out the design system for this{" "}
+          <Link
+            href={TOGGLE_GROUP_DESIGN_SYSTEM_URL}
+            target="_blank"
+            className="text-blue-600"
+          >
             here.
           </Link>
         </div>
