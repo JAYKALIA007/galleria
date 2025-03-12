@@ -1,0 +1,123 @@
+# Implementing Virtualization for Web Applications
+
+During one of my recent technical interviews, I came across a question to create an Excel sheet, which started off as a barebones implementation but then led to a very deep dive into ways to optimize the performance of the web app. One of the techniques we discussed was <em style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>virtualization</em>.
+
+<br />
+So, how would you implement virtualization? The obvious answer might be using an
+open source library like react-virtual or react-virtuoso, right? But before using
+these libraries, shouldn't you know how to create one yourself, at least the very
+basics of it? Well, let's take a deep dive.
+
+<div style={{ fontWeight: "700", margin: "25px 0 10px 0" }}>
+  What is Virtualization?
+</div>
+
+Virtualization is a technique that improves performance when dealing with large datasets by rendering only the elements currently visible on the screen. Instead of loading all items at once, it dynamically manages content based on the user's scroll position. This method, also called <em style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>windowing</em>, keeps the number of active DOM elements low, reducing memory usage and improving responsiveness.
+
+<div style={{ fontWeight: "700", margin: "25px 0 10px 0" }}>
+  Why use Virtualization?
+</div>
+
+When dealing with thousands of rows or items, rendering them all at once can slow
+down your application. Virtualization helps by only keeping a small number of elements
+in the DOM at a time. This leads to:
+
+<ol
+  style={{
+    padding: "20px 20px 0px 20px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+  }}
+>
+  <li>1. Faster load times</li>
+  <li>2. Smoother scrolling</li>
+  <li>3. Better INP and LCP scores.</li>
+</ol>
+
+<div style={{ fontWeight: "700", margin: "25px 0 10px 0" }}>
+  How to Implement Virtualization?
+</div>
+
+Imagine a scenario where your screen can display <em style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>10 list items at a time</em>, but the dataset contains thousands of entries. Instead of rendering all of them, we display only **a bit more than what’s visible**—let’s say <em style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>20 items</em>. This extra space, known as an <em style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>overscan buffer</em>, ensures smooth scrolling.
+
+<div style={{ fontWeight: "600", margin: "25px 0 10px 0" }}>
+  Step 1: Using Intersection Observers
+</div>
+
+We place one <em style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>Intersection Observer</em> before the first item and another after the 10th item (just before the 11th). These observers detect when the user scrolls and trigger updates to load new data.
+
+<div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  }}
+>
+  <img
+    src="https://i.ibb.co/Q3W4W2KP/image1.webp"
+    alt="Initializing elements pool and buffer"
+    style={{ padding: "20px", width: "500px" }}
+  />
+</div>
+
+<div style={{ fontWeight: "600", margin: "25px 0 10px 0" }}>
+  Step 2: Absolute Positioning for Better Performance
+</div>
+
+Each list item is <em style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>absolutely positioned</em> rather than using traditional flow layout (like margins and padding). This prevents layout shifts and costly browser reflows, making scrolling more efficient.
+
+<div style={{ fontWeight: "600", margin: "25px 0 10px 0" }}>
+  Step 3: Recycling DOM Elements
+</div>
+
+As the user scrolls down and reaches item <em style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>11-20</em>, the first 10 items <em style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>move into the buffer zone</em>. When the bottom observer gets triggered, we shift these first 10 items to represent **items 21-30** instead of removing and creating new elements.
+
+<div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  }}
+>
+  <img
+    src="https://i.ibb.co/2YKtk8fQ/image2.webp"
+    alt="Reaching the limit, buffer is filled"
+    style={{ padding: "20px", width: "500px" }}
+/>
+
+</div>
+
+To maintain the illusion of a full list, we place an <em style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>empty placeholder div</em> equal in height to the previous items. This ensures the scrollbar remains accurate and prevents jumps.
+
+<div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  }}
+>
+  <img
+    src="https://i.ibb.co/YB7LS1FK/image3.webp"
+    alt="Recycle elements from the buffer"
+    style={{ padding: "20px", width: "500px" }}
+/>
+
+</div>
+
+<div style={{ fontWeight: "600", margin: "25px 0 10px 0" }}>
+  The Result: A Smooth and Efficient List
+</div>
+
+Instead of managing <em style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>thousands of DOM elements</em>, we maintain only <em style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>20</em> at any given time, dynamically updating them as needed. This approach keeps the UI fast, responsive, and highly optimized for performance.
+
+While libraries like <em style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>react-virtual</em> or <em style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>react-virtuoso</em> handle much of this for you, understanding these core concepts helps when fine-tuning performance or building custom solutions.
+
+<div
+style={{
+    margin: "30px 0",
+    fontStyle: "italic",
+  }}>
+Happy scrolling without the lag! 🎮 Peace ✌🏼
+
+</div>

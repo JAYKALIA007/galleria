@@ -64,6 +64,9 @@ export default function Home() {
 
           <div className="flex flex-col gap-2">
             <div className="text-base md:text-lg font-semibold">My work</div>
+            <Link href="/blogs" className="hover:underline underline-offset-4">
+              Blogs
+            </Link>
             <Link
               href="/design-system"
               className="hover:underline underline-offset-4"
