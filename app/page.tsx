@@ -4,28 +4,12 @@ import Head from "next/head";
 import Link from "next/link";
 import { SlideInAnimationContainer } from "./components/SlideInAnimationContainer";
 import { ABOUT_CONTENT, ABOUT_PAGE, GOOGLE_TRACKING_ID } from "./constants";
-import ReactGA from "react-ga";
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { useState } from "react";
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
 
 export default function Home() {
-  const pathname = usePathname();
   const [isHover, setIsHover] = useState(false);
-
-  useEffect(() => {
-    if (typeof window !== "undefined" && GOOGLE_TRACKING_ID) {
-      ReactGA.initialize(GOOGLE_TRACKING_ID);
-      ReactGA.pageview(window.location.pathname + window.location.search);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (pathname) {
-      ReactGA.pageview(pathname);
-    }
-  }, [pathname]);
 
   return (
     <div className="main-container">
