@@ -41,13 +41,7 @@ export const PageViewCounter = () => {
         }
 
         const data = await response.json();
-
-        let totalViews = 0;
-        if (data?.result?.[0]?.count !== undefined) {
-          totalViews = data.result[0].count;
-        }
-
-        setPageViews(totalViews);
+        setPageViews(data?.result?.[0]?.count || 0);
       } catch (error) {
         console.error("Error fetching page views:", error);
         setPageViews(0);
