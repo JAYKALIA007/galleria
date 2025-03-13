@@ -34,8 +34,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="w-full lg:w-1/2 lg:mx-auto">
+            <Header />
             <PostHogProvider>
-              <Header />
               <main className="m-2 text-sm p-4 lg:p-10">{children}</main>
             </PostHogProvider>
           </div>
