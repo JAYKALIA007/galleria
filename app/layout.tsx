@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "./components/Header";
 import { ThemeProvider } from "./components/theme-provider";
+import { PostHogProvider } from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -33,8 +34,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="w-full lg:w-1/2 lg:mx-auto">
-            <Header />
-            <main className="m-2 text-sm p-4 lg:p-10">{children}</main>
+            <PostHogProvider>
+              <Header />
+              <main className="m-2 text-sm p-4 lg:p-10">{children}</main>
+            </PostHogProvider>
           </div>
         </ThemeProvider>
       </body>
