@@ -3,6 +3,9 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
+const startDate = "2025-01-01T00:00:00Z";
+const today = new Date().toISOString();
+
 export const PageViewCounter = () => {
   const [pageViews, setPageViews] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
@@ -32,6 +35,9 @@ export const PageViewCounter = () => {
                   type: "event",
                 },
               ],
+              date_from: startDate,
+              date_to: today,
+              interval: "month",
             }),
           }
         );
