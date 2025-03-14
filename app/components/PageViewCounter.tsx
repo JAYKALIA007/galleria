@@ -60,7 +60,7 @@ export const PageViewCounter = () => {
   }, [pathname]);
 
   return (
-    <div className="text-xs md:text-sm text-gray-500">
+    <div className="text-xs md:text-sm text-gray-500 flex whitespace-nowrap">
       {loading ? <span>...</span> : <span>{pageViews} views</span>}
     </div>
   );
