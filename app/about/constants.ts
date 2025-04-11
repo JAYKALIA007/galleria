@@ -8,7 +8,7 @@ export const DRIVE_RESUME_LINK =
 
 export const RIZZLE_ABOUT = {
   start: "2024",
-  end: "current",
+  end: "2025",
   designation: "Frontend Engineer",
   type: "Full time",
   companyName: "Rizzle AI",
@@ -20,7 +20,7 @@ export const RIZZLE_ABOUT = {
     "GraphQL",
     "SCSS",
   ],
-  description: `At Rizzle AI, we're shaping the future of AI media, pioneering innovations like text-to-video and audio-to-video conversion. As a frontend developer, I work on the development and upkeep of vital frontend components. Collaborating closely with diverse teams, I try to use the best UI/UX practices, ensuring Rizzle AI remains at the forefront of this dynamic industry.`,
+  description: `At Rizzle AI, I contributed to shaping the future of AI media, working on pioneering innovations like text-to-video and audio-to-video conversion. As a frontend developer, I worked on the development and upkeep of vital frontend components. Collaborating closely with diverse teams, I implemented best UI/UX practices, helping Rizzle AI maintain its position at the forefront of this dynamic industry.`,
   companyUrl: "https://rizzle.com/",
 };
 
