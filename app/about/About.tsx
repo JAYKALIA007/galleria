@@ -1,3 +1,4 @@
+import React from "react";
 import { SlideInAnimationContainer } from "../components/SlideInAnimationContainer";
 import { ABOUT_CONTENT } from "../constants";
 import { Experience } from "./Experience";

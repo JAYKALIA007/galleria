@@ -21,10 +21,7 @@ type SocialsPropsType = {};
 
 export const Socials: React.FC<SocialsPropsType> = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0, x: "-40vw" }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ delay: 0.5, duration: 1, type: "spring" }}
+    <div
       className="flex w-full justify-end gap-4 items-center m"
     >
       <AnimatedIconLink
@@ -52,6 +49,6 @@ export const Socials: React.FC<SocialsPropsType> = () => {
         icon={<FileText height={"20px"} width={"20px"} />}
         label="View Full Résumé"
       />
-    </motion.div>
+    </div>
   );
 };
