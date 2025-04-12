@@ -1,0 +1,314 @@
+import { PageViewCounter } from "../../components/PageViewCounter";
+
+<div className="flex justify-between items-center mb-4">
+  # Improving INP by Upgrading from React 17 to React 18
+  <PageViewCounter />
+</div>
+
+<div style={{ fontWeight: "700", margin: "20px 0 8px 0" }}>
+  What is INP?
+</div>
+
+INP (Interaction to Next Paint) is a user-centric performance metric that measures how long it takes for your page to respond to a user's interaction — such as a tap, click, or key press.
+
+<ol
+  style={{
+    padding: "12px 12px 0px 12px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "8px",
+    fontSize: "0.9rem",
+  }}
+>
+  <li>• Each user session has multiple interactions</li>
+  <li>• INP is the slowest (highest-latency) interaction in that session</li>
+  <li>• The "global" INP reported by tools like PageSpeed Insights is the 75th percentile across real-user data over 28 days</li>
+</ol>
+
+<div style={{ margin: "20px 0" }}>
+  <em style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>Good INP: under 200ms</em>  
+  <br />
+  <em style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>Poor INP: over 500ms</em>
+</div>
+
+<div style={{ fontWeight: "700", margin: "25px 0 10px 0" }}>
+  Why INP Matters
+</div>
+
+Simple: Performance drives business.
+
+<ol
+  style={{
+    padding: "10px 20px 10px 20px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+  }}
+>
+  <li>• Better INP = better user experience</li>
+  <li>• Google uses INP as a Core Web Vital → directly affects search rankings</li>
+  <li>• Better performance reduces ad costs (via Quality Score)</li>
+</ol>
+
+Every millisecond counts when it comes to user engagement, conversion, and SEO.
+
+<div style={{ fontWeight: "700", margin: "25px 0 10px 0" }}>
+  React 17 vs React 18: The INP Impact
+</div>
+
+Let's look at how upgrading from React 17 to React 18 can significantly improve your INP scores:
+
+<div style={{ fontWeight: "600", margin: "25px 0 10px 0" }}>
+  React 17 (Next.js 12) Limitations
+</div>
+
+In Next.js 12 (React 17), SSR had inherent limitations that affected INP:
+
+<ol
+  style={{
+    padding: "10px 20px 10px 20px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+  }}
+>
+<li>• Load entire HTML</li>
+<li>• Start hydration process</li>
+<li>• Queue user interactions</li>
+<li>• Complete hydration</li>
+<li>• Finally process queued interactions</li>
+</ol>
+
+<div style={{ fontWeight: "600", margin: "25px 0 10px 0" }}>
+  React 18 (Next.js 13+) Improvements
+</div>
+
+React 18 introduced two game-changing features:
+
+<ol
+  style={{
+    padding: "10px 20px 10px 20px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+  }}
+>
+  <li>• <em style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>Streaming HTML</em> - instead of the traditional way of creating the entire HTML page on the server and then sending it to the client, what streaming HTML does is send HTML progressively as it's generated. This helps with FCP.</li>
+  <li>• <em style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>Selective Hydration</em> - enables interactive parts of the page to hydrate independently and in priority order</li>
+</ol>
+
+
+<div style={{ fontWeight: "700", margin: "25px 0 10px 0" }}>
+  Implementation Steps
+</div>
+
+To fully leverage these improvements:
+
+<ol
+  style={{
+    padding: "10px 20px 10px 20px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+  }}
+>
+  <li>• Upgrade to React 18 (Next.js 13+)</li>
+  <li>• Adopt the App Router</li>
+  <li>• Use Server Components where possible</li>
+  <li>• Implement Suspense boundaries strategically</li>
+</ol>
+
+<div style={{ fontWeight: "700", margin: "25px 0 10px 0" }}>
+    Let's understand this with an example.
+</div>
+In an e-commerce product page:
+<ol
+  style={{
+    padding: "10px 20px 10px 20px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+  }}
+>
+<li>• The ProductDetails component (which includes critical UI like product images, title, and "Add to Cart" button) is loaded and hydrated first</li>
+<li>• Less critical components like RelatedProducts and Reviews are wrapped in Suspense boundaries</li>
+<li>• When a user lands on the page, they can immediately interact with the "Add to Cart" functionality, even if the reviews and related products are still loading</li>
+<li>• This prioritized hydration significantly improves the INP by ensuring the most important interactions are ready as soon as possible</li>
+</ol>
+
+This approach ensures that users can take critical actions (like adding items to cart) without waiting for the entire page to hydrate, resulting in better INP scores and user experience. 
+
+```jsx
+// app/product/[id]/page.js (Server Component)
+import { Suspense } from 'react'
+import ProductDetails from './ProductDetails'
+import RelatedProducts from './RelatedProducts'
+import Reviews from './Reviews'
+import RecommendationEngine from './RecommendationEngine'
+import ShowReviewsButton from './ShowReviewsButton'
+
+export default async function ProductPage({ params }) {
+  const { id } = params
+  const productPromise = fetchProduct(id)
+  
+  // This product data will be fetched first and sent immediately
+  const product = await productPromise
+  
+  return (
+    <div className="product-page">
+      <ProductDetails product={product} />
+      
+      {/* These components will stream in as their data becomes available */}
+      <Suspense fallback={<div>Loading related products...</div>}>
+        <RelatedProducts productId={id} />
+      </Suspense>
+      
+      <ShowReviewsButton />
+      
+      <Suspense fallback={<div>Loading reviews...</div>}>
+        <Reviews productId={id} />
+      </Suspense>
+      
+      <Suspense fallback={<div>Loading recommendations...</div>}>
+        <RecommendationEngine productId={id} />
+      </Suspense>
+    </div>
+  )
+}
+```
+
+
+```jsx
+// app/product/[id]/RelatedProducts.js (Server Component)
+export default async function RelatedProducts({ productId }) {
+  // This data fetching won't block the initial HTML stream
+  const relatedProducts = await fetchRelatedProducts(productId)
+  
+  return (
+    <div className="related-products">
+      {/* Content here */}
+    </div>
+  )
+}
+```
+
+
+```jsx
+// app/product/[id]/ShowReviewsButton.js (Client Component)
+'use client'
+
+import { useState } from 'react'
+export default function ShowReviewsButton() {
+  const [reviewsVisible, setReviewsVisible] = useState(false)
+  return (
+    <>
+      <button onClick={() => setReviewsVisible(true)}>
+        Show Reviews
+      </button>
+      
+      {/* This state will be controlled client-side */}
+      <div style={{ display: reviewsVisible ? 'block' : 'none' }} 
+           id="reviews-container"></div>
+    </>
+  )
+}
+
+```
+
+
+```jsx
+// app/product/[id]/Reviews.js (Server Component)
+export default async function Reviews({ productId }) {
+  const reviews = await fetchReviews(productId)
+  return (
+    <div id="reviews-content">
+      {/* Reviews content */}
+    </div>
+  )
+}
+
+```
+
+<div style={{ fontWeight: "700", margin: "25px 0 10px 0" }}>
+The key differences:
+</div>
+
+Streaming HTML:
+
+<ol
+  style={{
+    padding: "10px 20px 10px 20px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+  }}
+>
+<li>• The ProductDetails component renders first and streams to the client immediately</li>
+<li>• RelatedProducts, Reviews, and RecommendationEngine components are wrapped in Suspense boundaries</li>
+<li>• Each Suspense boundary allows HTML for that section to stream independently as its data becomes available</li>
+<li>• Users see the product details first while other sections load progressively</li>
+</ol>
+
+Selective Hydration:
+
+<ol
+  style={{
+    padding: "10px 20px 10px 20px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+  }}
+>
+<li>• Server Components (the default) don't need client-side JavaScript</li>
+<li>• Only components marked with 'use client' (like ShowReviewsButton) get hydrated</li>
+<li>• Interactive elements are prioritized for hydration when users interact with them</li>
+<li>• If a user clicks the reviews button, that component gets hydrated with higher priority</li>
+</ol>
+
+
+This approach significantly improves INP and user experience because:
+
+<ol
+  style={{
+    padding: "10px 20px 10px 20px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+  }}
+>
+<li>• The page becomes interactive in a progressive manner</li>
+<li>• Less JavaScript is sent to the client overall</li>
+<li>• The main thread stays more responsive during hydration</li>
+</ol>
+
+
+<div style={{ fontWeight: "700", margin: "25px 0 10px 0" }}>
+  Additional INP Optimization Techniques
+</div>
+
+Although this is one of the ways in which the INP of the page can be improved, it’s not always the solution. What if you already have this, the latest version of react which supports both selective hydration as well as streaming html.
+In those cases, there are some other ways which might help to improve the overall INP of the page.
+
+
+<ol
+  style={{
+    padding: "10px 20px 10px 20px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+  }}
+>
+  <li>• Optimistic updates</li>
+  <li>• Progressive loading</li>
+  <li>• List virtualization for large datasets</li>
+  <li>• Debounce/throttle frequent function calls</li>
+  <li>• Event delegation</li>
+  <li>• Prevent unnecessary re-renders</li>
+</ol>
+
+<div style={{ margin: "30px 0", fontStyle: "italic" }}>
+  Remember: Every millisecond counts in delivering a great user experience! 🚀
+</div>
+
+
+
