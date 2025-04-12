@@ -84,7 +84,15 @@ const components = {
   },
   code: ({ children, ...props }: ComponentPropsWithoutRef<"code">) => {
     const codeHTML = highlight(children as string);
-    return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
+    return (
+      <div className="leading-6 p-4 text-xs mb-4 mt-6 overflow-x-auto rounded-lg border border-gray-100 bg-gray-100 dark:border-gray-900 dark:bg-zinc-900">
+        <code 
+          dangerouslySetInnerHTML={{ __html: codeHTML }} 
+          className="block text-gray-400 dark:text-gray-300 text-[0.9rem]"
+          {...props} 
+        />
+      </div>
+    );
   },
   Table: ({ data }: { data: { headers: string[]; rows: string[][] } }) => (
     <table>
